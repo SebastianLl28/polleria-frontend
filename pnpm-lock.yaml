@@ -11,6 +11,9 @@ dependencies:
   '@emotion/styled':
     specifier: ^11.11.0
     version: 11.11.0(@emotion/react@11.11.1)(@types/react@18.2.22)(react@18.2.0)
+  '@fontsource/david-libre':
+    specifier: ^5.0.12
+    version: 5.0.12
   '@fontsource/roboto':
     specifier: ^5.0.8
     version: 5.0.8
@@ -623,6 +626,10 @@ packages:
 
   /@floating-ui/utils@0.1.4:
     resolution: {integrity: sha512-qprfWkn82Iw821mcKofJ5Pk9wgioHicxcQMxx+5zt5GSKoqdWvgG5AxVmpmUUjzTLPVSH5auBrhI93Deayn/DA==}
+    dev: false
+
+  /@fontsource/david-libre@5.0.12:
+    resolution: {integrity: sha512-Wd5bpAS1Jzy202Gl5JSAHVV33WLqHYQSbRqasOb3btfyGvvUr4xAucKVc9j68cDgtYPrg73zBh8y8BkyClLSjA==}
     dev: false
 
   /@fontsource/roboto@5.0.8:
