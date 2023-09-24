@@ -7,7 +7,7 @@ const App = () => {
   return (
     <main
       css={css`
-        background-color: #fcfcfc;
+        background-color: #f2f2f2;
         min-height: 100vh;
       `}
     >
