@@ -14,6 +14,11 @@ const GlobalStyle = () => {
             margin: 0;
             padding: 0;
           }
+          button {
+            background-color: inherit;
+            border: unset;
+            outline: none;
+          }
           li {
             list-style: none;
           }
