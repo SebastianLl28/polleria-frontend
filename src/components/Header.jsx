@@ -70,7 +70,14 @@ const Header = () => {
           </li>
           <li>
             <IconButton>
-              <ShoppingCartIcon color="#000" fontSize="large" />
+              <img
+                src="/home/shopping-cart-icon.svg"
+                alt="shopping cart icon"
+                css={css`
+                  width: 32px;
+                  height: 32px;
+                `}
+              />
             </IconButton>
           </li>
         </ContainerList>
