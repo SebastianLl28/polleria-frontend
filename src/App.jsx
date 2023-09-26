@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { HomePage } from "./pages/index";
+import { HomePage, MenuPage } from "./pages/index";
 import { css } from "@emotion/react";
 import { Header } from "./components";
 
@@ -16,6 +16,7 @@ const App = () => {
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/menu" element={<MenuPage />} />
         </Routes>
       </BrowserRouter>
     </main>
