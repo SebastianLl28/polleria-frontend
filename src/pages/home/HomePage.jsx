@@ -1,8 +1,9 @@
-import { HeroSection, SpecialtySection } from "./components";
+import { HeroSection, Slider, SpecialtySection } from "./components";
 
 const HomePage = () => {
   return (
     <>
+      <Slider />
       <HeroSection />
       <SpecialtySection />
     </>
