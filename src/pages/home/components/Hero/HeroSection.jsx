@@ -4,7 +4,7 @@ import Picture from "./Picture";
 
 const HeroSection = () => {
   return (
-    <Container sx={{ pb: 6 }}>
+    <Container sx={{ py: 10 }}>
       <Grid container gap={7} width="100%">
         <Body />
         <Picture />
