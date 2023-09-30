@@ -15,7 +15,7 @@ const Header = () => {
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.229);
         position: sticky;
         top: 0;
-        z-index: 1;
+        z-index: 10;
       `}
     >
       <Container
