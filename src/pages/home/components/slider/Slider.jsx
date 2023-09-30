@@ -1,37 +1,33 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
-import Sliders from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React from "react";
+import { Navigation, Pagination, A11y, Autoplay } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import "swiper/css/autoplay";
 import styled from "@emotion/styled";
 
 const Slider = () => {
-  const settings = {
-    infinite: true,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
-
   return (
-    <Sliders
-      {...settings}
-      css={css`
-        overflow: hidden;
-        padding: 0;
-        margin: 0;
-      `}
+    <Swiper
+      modules={[Navigation, Pagination, A11y, Autoplay]}
+      spaceBetween={0}
+      slidesPerView={1}
+      navigation
+      pagination={{ clickable: true }}
+      autoplay={{ delay: 4000 }}
     >
-      <div>
+      <SwiperSlide>
         <Image src="/home/slide1.jpg" alt="" />
-      </div>
-      <div>
+      </SwiperSlide>
+      <SwiperSlide>
         <Image src="/home/slide2.png" alt="" />
-      </div>
-      <div>
+      </SwiperSlide>
+      <SwiperSlide>
         <Image src="/home/slide3.jpg" alt="" />
-      </div>
-    </Sliders>
+      </SwiperSlide>
+    </Swiper>
   );
 };
 
