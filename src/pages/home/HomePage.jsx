@@ -1,3 +1,4 @@
+import Footer from "../../components/Footer";
 import { HeroSection, Slider, SpecialtySection } from "./components";
 
 const HomePage = () => {
@@ -6,6 +7,7 @@ const HomePage = () => {
       <Slider />
       <HeroSection />
       <SpecialtySection />
+      <Footer />
     </>
   );
 };

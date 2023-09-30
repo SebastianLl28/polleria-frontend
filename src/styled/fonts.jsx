@@ -23,4 +23,6 @@ export const TextLink = styled(Link)((props) => ({
   fontWeight: props.fontWeight ?? 400,
   color: props.color ?? "#000000",
   textDecoration: "none",
+  letterSpacing: "1px",
+  fontStyle: "italic",
 }));
