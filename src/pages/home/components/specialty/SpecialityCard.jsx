@@ -1,20 +1,14 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { Button } from "@mui/material";
-import { useInView } from "react-intersection-observer";
 import { Text } from "../../../../styled/fonts";
 
 const SpecialityCard = ({
   specialty: { name, description, price, image },
   index,
 }) => {
-  const { ref, inView } = useInView({
-    threshold: 0,
-  });
-
   return (
     <li
-      ref={ref}
       css={css`
         display: flex;
         flex-direction: column;
@@ -27,18 +21,6 @@ const SpecialityCard = ({
           0px 2px 2px 0px rgba(0, 0, 0, 0.14),
           0px 1px 5px 0px rgba(0, 0, 0, 0.12);
         gap: 1em;
-        opacity: 0;
-        ${inView && "animation: identifier 0.5s linear forwards;"}
-        animation-delay: ${index * 0.3}s;
-
-        @keyframes identifier {
-          0% {
-            opacity: 0;
-          }
-          100% {
-            opacity: 1;
-          }
-        }
       `}
     >
       <img
