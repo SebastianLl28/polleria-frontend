@@ -1,7 +1,5 @@
-import { css } from "@emotion/react";
-import { Global } from "@emotion/react";
-import { CssBaseline } from "@mui/material";
-import React from "react";
+import { css, Global } from '@emotion/react'
+import { CssBaseline } from '@mui/material'
 
 const GlobalStyle = () => {
   return (
@@ -25,7 +23,7 @@ const GlobalStyle = () => {
         `}
       />
     </>
-  );
-};
+  )
+}
 
-export default GlobalStyle;
+export default GlobalStyle

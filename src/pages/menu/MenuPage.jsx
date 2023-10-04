@@ -3,7 +3,7 @@ const MenuPage = () => {
     <div>
       <p>this is menu page</p>
     </div>
-  );
-};
+  )
+}
 
-export default MenuPage;
+export default MenuPage

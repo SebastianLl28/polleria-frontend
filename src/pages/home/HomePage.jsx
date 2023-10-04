@@ -1,5 +1,5 @@
-import Footer from "../../components/Footer";
-import { HeroSection, Slider, SpecialtySection } from "./components";
+import Footer from '../../components/Footer'
+import { HeroSection, Slider, SpecialtySection } from './components'
 
 const HomePage = () => {
   return (
@@ -9,7 +9,7 @@ const HomePage = () => {
       <SpecialtySection />
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default HomePage;
+export default HomePage

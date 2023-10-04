@@ -1,21 +1,20 @@
 /** @jsxImportSource @emotion/react */
-import { keyframes, css } from "@emotion/react";
-import styled from "@emotion/styled";
+import { keyframes, css } from '@emotion/react'
+import styled from '@emotion/styled'
 
 const Picture = () => {
   return (
     <Container>
       <img
-        src="/home/hero.webp"
-        alt=""
+        src='/home/hero.webp'
+        alt=''
         css={css`
           border-radius: 3rem;
         `}
       />
       <img
-        component="img"
-        src="/home/hero-secondary.png"
-        alt=""
+        src='/home/hero-secondary.png'
+        alt=''
         css={css`
           position: absolute;
           bottom: 1rem;
@@ -24,10 +23,10 @@ const Picture = () => {
         `}
       />
     </Container>
-  );
-};
+  )
+}
 
-export default Picture;
+export default Picture
 
 const animate = keyframes`
   0% {
@@ -39,9 +38,9 @@ const animate = keyframes`
     opacity: 1;
     transform: translateY(0);
   }
-`;
+`
 
-const Container = styled("div")((props) => ({
-  position: "relative",
-  animation: `${animate} 1.5s ease`,
-}));
+const Container = styled('div')(props => ({
+  position: 'relative',
+  animation: `${animate} 1.5s ease`
+}))
