@@ -15,7 +15,7 @@ const SpecialityCard = ({
         justify-content: center;
         position: relative;
         padding: 5.2rem 0 2rem 0;
-        border-radius: 4rem 0 4rem 0;
+        border-radius: 0.5rem;
         background-color: #fff;
         box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
           0px 2px 2px 0px rgba(0, 0, 0, 0.14),
