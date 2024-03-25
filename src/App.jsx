@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { HomePage, MenuPage } from './pages/index'
 import { css } from '@emotion/react'
 import { Header } from './components'
+import './index.css'
 
 const App = () => {
   return (
