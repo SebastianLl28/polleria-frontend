@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Home = () => {
   return (
-    <div>
+    <div className='h-[200dvh]'>
       <p>asdasda</p>
       <Button>Click me</Button>
       <Button variant='link'>Click me</Button>
