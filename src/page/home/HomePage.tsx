@@ -1,14 +1,18 @@
-import { Button, buttonVariants } from '@/components/ui/button'
-import { Link } from 'react-router-dom'
+import About from './sections/About'
+import Form from './sections/Form'
+import Hero from './sections/Hero'
+import Promotion from './sections/Promotion'
 
 const Home = () => {
   return (
-    <div className='h-[200dvh]'>
-      <p>asdasda</p>
-      <Button>Click me</Button>
-      <Button variant='link'>Click me</Button>
-      <Link to='/products' className={buttonVariants()}>go to Producst</Link>
-    </div>
+    <main className='h-[200dvh] space-y-24'>
+      <Hero/>
+      <div className='container mx-auto space-y-24'>
+        <Promotion/>
+        <About/>
+        <Form/>
+      </div>
+    </main>
   )
 }
 

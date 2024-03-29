@@ -9,7 +9,7 @@ export const Header = () => {
   const { setIsOpen } = useModalStore()
 
   return (
-    <header className='w-full border-b border-black py-4 sticky top-0 bg-white'>
+    <header className='w-full border-b border-black py-4 sticky top-0 bg-white z-50'>
       <div className='container mx-auto flex justify-between items-center'>
         <div>
           <Link to='/' className='w-36 h-12 bg-gray-300 rounded flex items-center justify-center font-bold'>
