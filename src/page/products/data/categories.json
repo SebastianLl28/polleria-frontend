@@ -1,0 +1,97 @@
+[
+  {
+    "id": 1,
+    "name": "Promociones",
+    "image": "https://cdn-icons-png.flaticon.com/128/372/372754.png"
+  },
+  {
+    "id": 2,
+    "name": "Pollos",
+    "image": "https://cdn-icons-png.flaticon.com/128/1046/1046853.png"
+  },
+  {
+    "id": 3,
+    "name": "Papas",
+    "image": "https://cdn-icons-png.flaticon.com/128/1046/1046888.png"
+  },
+  {
+    "id": 4,
+    "name": "Bebidas",
+    "image": "https://cdn-icons-png.flaticon.com/128/3094/3094067.png"
+  },
+  {
+    "id": 5,
+    "name": "Postres",
+    "image": "https://cdn-icons-png.flaticon.com/128/3081/3081792.png"
+  },
+  {
+    "id": 6,
+    "name": "Combos",
+    "image": "https://cdn-icons-png.flaticon.com/128/1046/1046861.png"
+  },
+  {
+    "id": 7,
+    "name": "Extras",
+    "image": "https://cdn-icons-png.flaticon.com/128/1046/1046860.png"
+  },
+  {
+    "id": 8,
+    "name": "Salsas",
+    "image": "https://cdn-icons-png.flaticon.com/128/1046/1046862.png"
+  },
+  {
+    "id": 9,
+    "name": "Ensaladas",
+    "image": "https://cdn-icons-png.flaticon.com/128/1046/1046863.png"
+  },
+  {
+    "id": 10,
+    "name": "Hamburguesas",
+    "image": "https://cdn-icons-png.flaticon.com/128/1046/1046864.png"
+  },
+  {
+    "id": 11,
+    "name": "Pizzas",
+    "image": "https://cdn-icons-png.flaticon.com/128/1046/1046865.png"
+  },
+  {
+    "id": 12,
+    "name": "Tacos",
+    "image": "https://cdn-icons-png.flaticon.com/128/1046/1046866.png"
+  },
+  {
+    "id": 13,
+    "name": "Sopas",
+    "image": "https://cdn-icons-png.flaticon.com/128/1046/1046867.png"
+  },
+  {
+    "id": 14,
+    "name": "Mariscos",
+    "image": "https://cdn-icons-png.flaticon.com/128/1046/1046868.png"
+  },
+  {
+    "id": 15,
+    "name": "Carnes",
+    "image": "https://cdn-icons-png.flaticon.com/128/1046/1046869.png"
+  },
+  {
+    "id": 16,
+    "name": "Desayunos",
+    "image": "https://cdn-icons-png.flaticon.com/128/1046/1046870.png"
+  },
+  {
+    "id": 17,
+    "name": "Comida Rápida",
+    "image": "https://cdn-icons-png.flaticon.com/128/1046/1046871.png"
+  },
+  {
+    "id": 18,
+    "name": "Comida China",
+    "image": "https://cdn-icons-png.flaticon.com/128/1046/1046872.png"
+  },
+  {
+    "id": 19,
+    "name": "Comida Japonesa",
+    "image": "https://cdn-icons-png.flaticon.com/128/1046/1046873.png"
+  }
+]

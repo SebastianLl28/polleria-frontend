@@ -35,6 +35,9 @@
     --ring: 31 67% 23%;
 
     --radius: 0.5rem;
+
+    --pagination-color: #000000;
+    --pagination-hover-color: #101010;
   }
 
   .dark {
