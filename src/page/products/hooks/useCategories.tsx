@@ -1,6 +1,6 @@
-import { useReducer } from 'react'
-import categoriesData from '../data/categories.json' assert { type: 'json' }
+import { useEffect, useReducer, useState } from 'react'
 import { Category } from '@/model/Category.model'
+import { useGetCategories } from '@/hooks/categories.hook'
 
 export interface CategoryState extends Category {
   selected: boolean
@@ -8,8 +8,16 @@ export interface CategoryState extends Category {
 
 const useCategories = () => {
 
-  const [categories, setCategories] = useReducer((state: CategoryState[], action: number) => {
-    if (action) {
+  const { data, isLoading, isSuccess } = useGetCategories()
+
+  const [initialCategoriesState, setInitialCategoriesState] = useState(data?.content ? data?.content.map((category) => ({ ...category, selected: false })) : null)
+
+  useEffect(() => {
+    setInitialCategoriesState(data?.content ? data?.content.map((category) => ({ ...category, selected: false })) : null)
+  }, [data])
+
+  const [categories, setCategories] = useReducer((state: CategoryState[] | null, action: number) => {
+    if (action && state) {
       return state.map(category => {
         if (category.id === action) {
           return { ...category, selected: !category.selected }
@@ -21,9 +29,9 @@ const useCategories = () => {
     else {
       return state
     }
-  }, categoriesData.map((category) => ({ ...category, selected: false })) as CategoryState[])
+  }, initialCategoriesState)
 
-  return { categories, setCategories }
+  return { categories, setCategories, isLoading, isSuccess }
 }
 
 export default useCategories
