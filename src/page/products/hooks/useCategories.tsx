@@ -14,6 +14,8 @@ const useCategories = () => {
   // set data with isActive
   const [categories, setCategories] = useState<null | ICategoryState[]>()
 
+  const [categorySelected, setCategorySelected] = useState<null | ICategoryState>(null)
+
   // set category state with isActive when initial data is success
   useEffect(() => {
     if ( isSuccess && !isLoading && initialData ) {
@@ -30,10 +32,18 @@ const useCategories = () => {
   // handle category when clicked
   const handleCategory = (id: number) => {
     const newCategory = categories?.map((category) => {
-      if (category.id === id) {
+      if (category.id === id && !category.isActive) {
+        setCategorySelected(category)
         return {
           ...category,
           isActive: true
+        }
+      }
+      if (category.id === id && category.isActive) {
+        setCategorySelected(null)
+        return {
+          ...category,
+          isActive: false
         }
       }
       return {
@@ -44,7 +54,7 @@ const useCategories = () => {
     setCategories(newCategory)
   }
 
-  return { isLoading, isSuccess, handleCategory, categories }
+  return { isLoading, isSuccess, handleCategory, categories, categorySelected }
 }
 
 export default useCategories

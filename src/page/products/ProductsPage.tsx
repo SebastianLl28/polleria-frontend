@@ -1,4 +1,3 @@
-import Pagination from '@/components/Pagination'
 import Body from './sections/Body'
 import Category from './sections/Category'
 import Filters from './sections/Filters'
@@ -9,7 +8,6 @@ const Products = () => {
       <Category/>
       <Filters/>
       <Body/>
-      <Pagination total={20} />
     </main>
   )
 }

@@ -1,15 +1,15 @@
-import { Product } from '@/model/Product.model'
+import { ProductAdapter } from '@/adapters/product.adapter'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
-interface IProductstore extends Product {
+interface IProductstore extends ProductAdapter {
   quantity: number
 }
 
 interface ICartStore {
   items: IProductstore[]
-  addItem: (item: Product) => void
-  removeItem: (item: Product) => void
+  addItem: (item: ProductAdapter) => void
+  removeItem: (item: ProductAdapter) => void
 }
 
 const useCartStore = create(

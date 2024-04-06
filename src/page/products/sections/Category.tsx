@@ -2,10 +2,18 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import CategoryCard from '../components/CategoryCard'
 import { Skeleton } from '@/components/ui/skeleton'
 import useCategories from '../hooks/useCategories'
+import { useEffect } from 'react'
+import { useFilterProducts } from '../store/useFilterProducts'
 
 const Category = () => {
 
-  const { categories, handleCategory, isLoading, isSuccess } = useCategories()
+  const { categories, handleCategory, isLoading, isSuccess, categorySelected } = useCategories()
+
+  const { setFilter } = useFilterProducts()
+
+  useEffect(() => {
+    setFilter({ category: categorySelected?.name ?? '', page: 0})
+  }, [categorySelected, setFilter])
 
   return (
     <section className='w-full'>
