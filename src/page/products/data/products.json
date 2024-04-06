@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "title": "1/4 pollo a la brasa",
     "description": "1/4 de pollo jugoso + crocantes papas fritas + ensalada fresca.",
     "price": 24.90,
@@ -7,6 +8,7 @@
     "image": "https://tofuu.getjusto.com/orioneat-local/resized2/Y59KadHCNjWQsHsGW-1200-1200.jpeg"
   },
   {
+    "id": 2,
     "title": "Salchileña",
     "description": "1/4 de pollo jugoso + abundante hot dog + crocantes papas fritas + ensalada fresca.",
     "price": 28.90,
@@ -14,13 +16,15 @@
     "image": "https://tofuu.getjusto.com/orioneat-local/resized2/z4YYPo6eMp8NLeTbd-1200-1200.jpeg"
   },
   {
+    "id": 3,
     "title": "1/4 de Pollo Anticuchero",
-    "description": "1/4 de pollo jugoso + 1 sabroso palo de anticucho + crocantes papas fritas + ensalada fresca.",
+    "description": "1 pollo jugoso + 2 sabroso palo de anticucho + crocantes papas fritas",
     "price": 30.90,
     "valoration": 3,
     "image": "https://tofuu.getjusto.com/orioneat-local/resized2/2H4Jp8cER6JTmuZ5Z-1200-1200.jpeg"
   },
   {
+    "id": 4,
     "title": "1/4 pollo choricero",
     "description": "1/4 de pollo jugoso + 1 sabroso palo de chorizo + crocantes papas fritas + ensalada fresca.",
     "price": 30,
@@ -28,6 +32,7 @@
     "image": "https://tofuu.getjusto.com/orioneat-local/resized2/m2LnqYZKw2m8Ay52d-1200-1200.jpeg"
   },
   {
+    "id": 5,
     "title": "Anticuchos",
     "description": "3 Palitos corazón de res, papas fritas, ensaladas y rocoto anticuchero",
     "price": 26.90,
@@ -35,6 +40,7 @@
     "image": "https://tofuu.getjusto.com/orioneat-local/resized2/m2LnqYZKw2m8Ay52d-1200-1200.jpeg"
   },
   {
+    "id": 6,
     "title": "Chaufa Familiar",
     "description": "1/4 de pollo jugoso + 1 sabroso palo de chorizo + crocantes papas fritas + ensalada fresca.",
     "price": 24.90,

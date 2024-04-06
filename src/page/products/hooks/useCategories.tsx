@@ -1,37 +1,50 @@
-import { useEffect, useReducer, useState } from 'react'
-import { Category } from '@/model/Category.model'
 import { useGetCategories } from '@/hooks/categories.hook'
+import { Category } from '@/model/Category.model'
+import { useEffect, useState } from 'react'
 
-export interface CategoryState extends Category {
-  selected: boolean
+export interface ICategoryState extends Category {
+  isActive: boolean
 }
 
 const useCategories = () => {
 
-  const { data, isLoading, isSuccess } = useGetCategories()
+  // initial data
+  const { isLoading, isSuccess, data: initialData } = useGetCategories()
 
-  const [initialCategoriesState, setInitialCategoriesState] = useState(data?.content ? data?.content.map((category) => ({ ...category, selected: false })) : null)
+  // set data with isActive
+  const [categories, setCategories] = useState<null | ICategoryState[]>()
 
+  // set category state with isActive when initial data is success
   useEffect(() => {
-    setInitialCategoriesState(data?.content ? data?.content.map((category) => ({ ...category, selected: false })) : null)
-  }, [data])
-
-  const [categories, setCategories] = useReducer((state: CategoryState[] | null, action: number) => {
-    if (action && state) {
-      return state.map(category => {
-        if (category.id === action) {
-          return { ...category, selected: !category.selected }
-        } else {
-          return { ...category, selected: false }
+    if ( isSuccess && !isLoading && initialData ) {
+      const newCategory = initialData.content.map((category) => {
+        return {
+          ...category,
+          isActive: false
         }
       })
+      setCategories(newCategory)
     }
-    else {
-      return state
-    }
-  }, initialCategoriesState)
+  }, [isLoading, isSuccess, initialData ])
 
-  return { categories, setCategories, isLoading, isSuccess }
+  // handle category when clicked
+  const handleCategory = (id: number) => {
+    const newCategory = categories?.map((category) => {
+      if (category.id === id) {
+        return {
+          ...category,
+          isActive: true
+        }
+      }
+      return {
+        ...category,
+        isActive: false
+      }
+    })
+    setCategories(newCategory)
+  }
+
+  return { isLoading, isSuccess, handleCategory, categories }
 }
 
 export default useCategories

@@ -1,8 +1,10 @@
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import useCartStore from '@/store/cartStore'
 import { Star } from 'lucide-react'
 
 type Props = {
+  id: number
   title: string,
   image: string
   description: string
@@ -10,9 +12,16 @@ type Props = {
   valoration: number
 }
 
-const ProductCard = ({ title, image, description, price, valoration }: Props) => {
+const ProductCard = ({ id, title, image, description, price, valoration }: Props) => {
+
+  const { addItem } = useCartStore()
+
+  const handleClick = () => {
+    addItem({ id, title, image, description, price, valoration })
+  }
+
   return (
-    <Card className='overflow-hidden relative bg-gray-50'>
+    <Card className='overflow-hidden relative bg-gray-50 transition-transform cursor-pointer hover:scale-105' onClick={handleClick}>
       <CardHeader className='p-0'>
         <img src={image} alt={title} className='h-48 object-cover'/>
       </CardHeader>

@@ -4,7 +4,7 @@ import ProductCard from '@/components/ProductCard'
 
 const Body = () => {
 
-  const products = productsData as Omit<Product, 'id'>[]
+  const products = productsData as Product[]
 
   return (
     <ul className='grid grid-cols-4 gap-10'>

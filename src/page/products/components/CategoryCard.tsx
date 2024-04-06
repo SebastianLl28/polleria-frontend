@@ -1,14 +1,13 @@
 import { Category } from '@/model/Category.model'
-// import { Dispatch } from 'react'
 
 interface CategoryCardProps extends Category{
-  // setCategory: Dispatch<number>
-  // selected: boolean
+  isActive: boolean,
+  handleCategory: (id: number) => void
 }
 
-const CategoryCard = ({ imageUrl, name }: CategoryCardProps ) => {
+const CategoryCard = ({ id, imageUrl, name, handleCategory, isActive }: CategoryCardProps ) => {
   return (
-    <div className={'w-28 p-2 cursor-pointer rounded-md bg-gray-100'}>
+    <div className={`w-28 p-2 cursor-pointer rounded-md  ${isActive ? 'bg-slate-300' : 'bg-gray-100'}`} onClick={() => handleCategory(id)}>
       <img src={imageUrl} alt={`${name} icon`} className='w-12 mx-auto'/>
       <p className='text-center line-clamp-1'>{name}</p>
     </div>

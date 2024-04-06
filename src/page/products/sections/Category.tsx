@@ -1,12 +1,11 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 import CategoryCard from '../components/CategoryCard'
-// import useCategories from '../hooks/useCategories'
 import { Skeleton } from '@/components/ui/skeleton'
-import { useGetCategories } from '@/hooks/categories.hook'
+import useCategories from '../hooks/useCategories'
 
 const Category = () => {
 
-  const { data, isLoading, isSuccess } = useGetCategories()
+  const { categories, handleCategory, isLoading, isSuccess } = useCategories()
 
   return (
     <section className='w-full'>
@@ -23,9 +22,9 @@ const Category = () => {
               </CarouselItem>
             ))
           )}
-          {!isLoading && isSuccess && data && data.content.length > 0 && data.content.map((category) => (
+          {!isLoading && isSuccess && categories && categories.length > 0 && categories.map((category) => (
             <CarouselItem key={category.id} className='basis-auto'>
-              <CategoryCard {...category} />
+              <CategoryCard {...category} handleCategory={handleCategory} />
             </CarouselItem>
           ))}
         </CarouselContent>
