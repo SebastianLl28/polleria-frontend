@@ -1,12 +1,15 @@
 import { useGetCategories } from '@/hooks/categories.hook'
 import { Category } from '@/model/Category.model'
 import { useEffect, useState } from 'react'
+import { useFilterProducts } from '../store/useFilterProducts'
 
 export interface ICategoryState extends Category {
   isActive: boolean
 }
 
-const useCategories = () => {
+const useCategories = (categoryName: string) => {
+
+  const { setFilter } = useFilterProducts()
 
   // initial data
   const { isLoading, isSuccess, data: initialData } = useGetCategories()
@@ -20,6 +23,13 @@ const useCategories = () => {
   useEffect(() => {
     if ( isSuccess && !isLoading && initialData ) {
       const newCategory = initialData.content.map((category) => {
+        if (category.name === categoryName) {
+          setCategorySelected({ ...category, isActive: true })
+          return {
+            ...category,
+            isActive: true
+          }
+        }
         return {
           ...category,
           isActive: false
@@ -27,13 +37,14 @@ const useCategories = () => {
       })
       setCategories(newCategory)
     }
-  }, [isLoading, isSuccess, initialData ])
+  }, [isLoading, isSuccess, initialData, categoryName ])
 
   // handle category when clicked
   const handleCategory = (id: number) => {
     const newCategory = categories?.map((category) => {
       if (category.id === id && !category.isActive) {
         setCategorySelected(category)
+        setFilter({ category: category.name, page: 0})
         return {
           ...category,
           isActive: true
@@ -41,6 +52,7 @@ const useCategories = () => {
       }
       if (category.id === id && category.isActive) {
         setCategorySelected(null)
+        setFilter({ category: '', page: 0})
         return {
           ...category,
           isActive: false

@@ -2,17 +2,15 @@ import Pagination from '@/components/Pagination'
 import ProductCard from '@/components/ProductCard'
 import { useGetProducts } from '@/hooks/product.hook'
 import { useFilterProducts } from '../store/useFilterProducts'
-import { useEffect } from 'react'
 
 const Body = () => {
-
   const { filter, setFilter } = useFilterProducts()
 
-  const { data, isLoading, isError, isSuccess, refetch } = useGetProducts(filter)
+  const { data, isLoading, isError, isSuccess } = useGetProducts()
 
-  useEffect(() => {
-    refetch()
-  }, [filter, refetch])
+  const handlePageChange = (page: number) => {
+    setFilter({ page: page - 1 })
+  }
 
   return (
     <div className='space-y-10'>
@@ -25,7 +23,7 @@ const Body = () => {
           ))
         }
       </ul>
-      <Pagination total={data?.totalPages ?? 0} current={filter.page + 1} onPageChange={page => setFilter({ page: page - 1 })} />
+      <Pagination total={data?.totalPages ?? 0} current={filter.page + 1} onPageChange={handlePageChange} />
     </div>
   )
 }

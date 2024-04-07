@@ -5,8 +5,10 @@ export interface ProductAdapter {
   name: string
   description: string
   price: number
+  imageUrl: string,
+  status: string,
   valoration: number
-  imageUrl: string
+  categoryList: string[]
 }
 
 export const productAdapter = (data: Product): ProductAdapter => ({
@@ -15,5 +17,7 @@ export const productAdapter = (data: Product): ProductAdapter => ({
   description: data.description,
   price: data.price,
   valoration: data.valoration,
-  imageUrl: data.imageUrl
+  imageUrl: data.imageUrl,
+  status: data.status,
+  categoryList: data.categoryList
 })
