@@ -1,15 +1,20 @@
 import { ProductAdapter } from '@/adapters/product.adapter'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import useCartStore from '@/store/cartStore'
+// import useCartStore from '@/store/cartStore'
 import { Star } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
-const ProductCard = ({ id, name, imageUrl, description, price, valoration }: ProductAdapter) => {
+const ProductCard = ({ name, imageUrl, description, price, valoration }: ProductAdapter) => {
 
-  const { addItem } = useCartStore()
+  // const { addItem } = useCartStore()
+
+  const navigate = useNavigate()
 
   const handleClick = () => {
-    addItem({ id, name, imageUrl, description, price, valoration })
+    // addItem({ id, name, imageUrl, description, price, valoration })
+    const encodedName = encodeURIComponent(name)
+    navigate(`/products/${encodedName}`)
   }
 
   return (
