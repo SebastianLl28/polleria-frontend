@@ -12,14 +12,14 @@ const Filters = () => {
 
   const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length > 60) return
-    setFilter({ product: e.target.value, page: 0 })
+    setFilter({ partialProduct: e.target.value, page: 0 })
   }
 
   return (
     <div className='flex justify-between'>
       <div className='max-w-md w-full'>
         <Label htmlFor={searchProductId}>Buscar Producto</Label>
-        <Input type='text' placeholder='ejem: 1/4 de pollo' id={searchProductId} onChange={handleName} value={filter.product}/>
+        <Input type='text' placeholder='ejem: 1/4 de pollo' id={searchProductId} onChange={handleName} value={filter.partialProduct}/>
       </div>
       <Select>
         <SelectTrigger className='w-60'>

@@ -10,7 +10,7 @@ interface IFilterStore {
 export const useFilterProducts = create<IFilterStore>((set) => ({
   filter: {
     category: '',
-    product: '',
+    partialProduct: '',
     page: 0
   },
   setFilter: (change) => set((state) => ({

@@ -1,5 +1,5 @@
 export interface IFilterCategory {
   category: string,
-  product: string,
+  partialProduct: string,
   page: number
 }
