@@ -3,7 +3,7 @@ export interface Product {
   name: string
   description: string
   price: number
-  imageUrl: string,
+  cardImage: string,
   status: string,
   valoration: number
   categoryList: string[]

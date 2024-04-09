@@ -17,7 +17,7 @@ export const productAdapter = (data: Product): ProductAdapter => ({
   description: data.description,
   price: data.price,
   valoration: data.valoration,
-  imageUrl: data.imageUrl,
+  imageUrl: data.cardImage,
   status: data.status,
   categoryList: data.categoryList
 })
