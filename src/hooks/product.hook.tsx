@@ -21,7 +21,7 @@ export const useGetProductByName = (name: string) => useQuery({
   queryKey: ['products', name],
   queryFn: () => getProductByName(name),
   refetchOnWindowFocus: false,
-  select: data => productAdapter(data),
+  select: data => productAdapter(data.content[0]),
   enabled: !!name,
   // cahce time 1 hour
   staleTime: 1000 * 60 * 60
