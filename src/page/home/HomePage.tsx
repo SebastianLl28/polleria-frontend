@@ -6,11 +6,11 @@ import Promotion from './sections/Promotion'
 const Home = () => {
   return (
     <main className='h-[200dvh] space-y-24'>
-      <Hero/>
+      <Hero />
       <div className='container mx-auto space-y-24'>
-        <Promotion/>
-        <About/>
-        <Form/>
+        <Promotion />
+        <About />
+        <Form />
       </div>
     </main>
   )

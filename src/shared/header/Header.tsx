@@ -5,14 +5,16 @@ import { CircleUserRound, Menu, ShoppingBasket } from 'lucide-react'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 
 export const Header = () => {
-
   const { setIsOpen } = useModalStore()
 
   return (
-    <header className='w-full border-b border-black py-4 sticky top-0 bg-white z-50'>
-      <div className='container mx-auto flex justify-between items-center'>
+    <header className='sticky top-0 z-50 w-full border-b border-black bg-white py-4'>
+      <div className='container mx-auto flex items-center justify-between'>
         <div>
-          <Link to='/' className='w-36 h-12 bg-gray-300 rounded flex items-center justify-center font-bold'>
+          <Link
+            to='/'
+            className='flex h-12 w-36 items-center justify-center rounded bg-gray-300 font-bold'
+          >
             Logo
           </Link>
         </div>
@@ -25,13 +27,17 @@ export const Header = () => {
               <Link to='/'>Locales</Link>
             </li>
             <li>
-              <Button className='size-12 p-0 rounded-full' variant='ghost'>
-                <CircleUserRound size={35}/>
+              <Button className='size-12 rounded-full p-0' variant='ghost'>
+                <CircleUserRound size={35} />
               </Button>
             </li>
             <li>
-              <Button onClick={() => setIsOpen(true)} className='size-12 p-0 rounded-full' variant='ghost'>
-                <ShoppingBasket size={35}/>
+              <Button
+                onClick={() => setIsOpen(true)}
+                className='size-12 rounded-full p-0'
+                variant='ghost'
+              >
+                <ShoppingBasket size={35} />
               </Button>
             </li>
           </ul>
@@ -40,15 +46,18 @@ export const Header = () => {
           <Sheet>
             <SheetTrigger>
               <Button className='p-0' variant='ghost'>
-                <Menu size={35}/>
+                <Menu size={35} />
               </Button>
             </SheetTrigger>
             <SheetContent className='w-full'>
-              <nav className='w-full h-full'>
-                <ul className='w-full h-full flex flex-col items-center justify-center gap-4 text-xl'>
+              <nav className='h-full w-full'>
+                <ul className='flex h-full w-full flex-col items-center justify-center gap-4 text-xl'>
                   <li>
-                    <Link to='/' className='w-36 h-12 bg-gray-300 rounded flex items-center justify-center font-bold'>
-                    Logo
+                    <Link
+                      to='/'
+                      className='flex h-12 w-36 items-center justify-center rounded bg-gray-300 font-bold'
+                    >
+                      Logo
                     </Link>
                   </li>
                   <li>

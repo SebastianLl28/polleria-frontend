@@ -6,10 +6,10 @@ import ShoppingCart from '@/shared/shopping-cart/ShoppingCart'
 const PublicLayout = () => {
   return (
     <main>
-      <ShoppingCart/>
-      <Header/>
-      <Outlet/>
-      <FloatingButton/>
+      <ShoppingCart />
+      <Header />
+      <Outlet />
+      <FloatingButton />
     </main>
   )
 }

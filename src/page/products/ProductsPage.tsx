@@ -4,10 +4,10 @@ import Filters from './sections/Filters'
 
 const Products = () => {
   return (
-    <main className='container mt-12 space-y-12 mb-12'>
-      <Category/>
-      <Filters/>
-      <Body/>
+    <main className='container mb-12 mt-12 space-y-12'>
+      <Category />
+      <Filters />
+      <Body />
     </main>
   )
 }

@@ -1,5 +1,7 @@
 .backgroundImage {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgb(17,24,39) 0, rgba(0, 0, 0, 0) 40%), linear-gradient(to top, rgb(17,24,39) 0, rgba(0, 0, 0, 0) 40%), linear-gradient(to left, rgb(17,24,39) 0, rgba(0, 0, 0, 0) 40%);
+  background: linear-gradient(to right, rgb(17, 24, 39) 0, rgba(0, 0, 0, 0) 40%),
+    linear-gradient(to top, rgb(17, 24, 39) 0, rgba(0, 0, 0, 0) 40%),
+    linear-gradient(to left, rgb(17, 24, 39) 0, rgba(0, 0, 0, 0) 40%);
 }

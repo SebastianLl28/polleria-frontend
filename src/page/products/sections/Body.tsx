@@ -17,13 +17,16 @@ const Body = () => {
       <ul className='grid grid-cols-4 gap-10'>
         {isLoading && <p>Loading...</p>}
         {isError && <p>Error</p>}
-        {
-          !isLoading && isSuccess && data.content.length > 0 && data.content.map(product => (
-            <ProductCard key={product.id} {...product} />
-          ))
-        }
+        {!isLoading &&
+          isSuccess &&
+          data.content.length > 0 &&
+          data.content.map(product => <ProductCard key={product.id} {...product} />)}
       </ul>
-      <Pagination total={data?.totalPages ?? 0} current={filter.page + 1} onPageChange={handlePageChange} />
+      <Pagination
+        total={data?.totalPages ?? 0}
+        current={filter.page + 1}
+        onPageChange={handlePageChange}
+      />
     </div>
   )
 }

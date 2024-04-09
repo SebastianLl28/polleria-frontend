@@ -3,7 +3,6 @@ import useCartStore from '@/store/cartStore'
 import { useModalStore } from '@/store/modalStore'
 
 const ShoppingCart = () => {
-
   const { isOpen, setIsOpen } = useModalStore()
 
   const { items } = useCartStore()
@@ -17,11 +16,11 @@ const ShoppingCart = () => {
         )}
         {items.length > 0 && (
           <ul className='space-y-5'>
-            {items.map((item) => (
-              <li key={item.id} className='rounded overflow-hidden'>
-                <img src={item.image} alt='' />
+            {items.map(item => (
+              <li key={item.id} className='overflow-hidden rounded'>
+                <img src={item.name} alt='' />
                 <div className='flex justify-between'>
-                  <p>{item.title}</p>
+                  <p>{item.name}</p>
                   <p>{item.quantity}</p>
                 </div>
               </li>

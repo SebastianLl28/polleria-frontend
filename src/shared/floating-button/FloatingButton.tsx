@@ -3,7 +3,6 @@ import { useModalStore } from '@/store/modalStore'
 import { ShoppingBasket } from 'lucide-react'
 
 const FloatingButton = () => {
-
   const { setIsOpen } = useModalStore()
 
   const handleClick = () => {
@@ -11,8 +10,11 @@ const FloatingButton = () => {
   }
 
   return (
-    <Button onClick={handleClick} className='fixed right-4 bottom-4 sm:hidden size-16 p-0 rounded-full'>
-      <ShoppingBasket size={48}/>
+    <Button
+      onClick={handleClick}
+      className='fixed bottom-4 right-4 size-16 rounded-full p-0 sm:hidden'
+    >
+      <ShoppingBasket size={48} />
     </Button>
   )
 }

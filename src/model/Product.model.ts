@@ -3,8 +3,8 @@ export interface Product {
   name: string
   description: string
   price: number
-  cardImage: string,
-  status: string,
+  cardImage: string
+  status: string
   valoration: number
   categoryList: string[]
 }

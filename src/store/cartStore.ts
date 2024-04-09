@@ -14,11 +14,11 @@ interface ICartStore {
 
 const useCartStore = create(
   persist<ICartStore>(
-    (set) => ({
+    set => ({
       items: [],
-      addItem: (item) => {
-        set((state) => {
-          const index = state.items.findIndex((i) => i.id === item.id)
+      addItem: item => {
+        set(state => {
+          const index = state.items.findIndex(i => i.id === item.id)
           if (index === -1) {
             return { items: [...state.items, { ...item, quantity: 1 }] }
           }
@@ -26,9 +26,9 @@ const useCartStore = create(
           return { items: [...state.items] }
         })
       },
-      removeItem: (item) => {
-        set((state) => {
-          const index = state.items.findIndex((i) => i.id === item.id)
+      removeItem: item => {
+        set(state => {
+          const index = state.items.findIndex(i => i.id === item.id)
           if (index === -1) {
             return { items: [...state.items] }
           }
@@ -36,9 +36,9 @@ const useCartStore = create(
             state.items[index].quantity--
             return { items: [...state.items] }
           }
-          return { items: state.items.filter((i) => i.id !== item.id) }
+          return { items: state.items.filter(i => i.id !== item.id) }
         })
-      },
+      }
     }),
     { name: 'cart-store' }
   )

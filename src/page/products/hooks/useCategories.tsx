@@ -8,7 +8,6 @@ export interface ICategoryState extends Category {
 }
 
 const useCategories = (categoryName: string) => {
-
   const { setFilter } = useFilterProducts()
 
   // initial data
@@ -21,8 +20,8 @@ const useCategories = (categoryName: string) => {
 
   // set category state with isActive when initial data is success
   useEffect(() => {
-    if ( isSuccess && !isLoading && initialData ) {
-      const newCategory = initialData.content.map((category) => {
+    if (isSuccess && !isLoading && initialData) {
+      const newCategory = initialData.content.map(category => {
         if (category.name === categoryName) {
           setCategorySelected({ ...category, isActive: true })
           return {
@@ -37,14 +36,14 @@ const useCategories = (categoryName: string) => {
       })
       setCategories(newCategory)
     }
-  }, [isLoading, isSuccess, initialData, categoryName ])
+  }, [isLoading, isSuccess, initialData, categoryName])
 
   // handle category when clicked
   const handleCategory = (id: number) => {
-    const newCategory = categories?.map((category) => {
+    const newCategory = categories?.map(category => {
       if (category.id === id && !category.isActive) {
         setCategorySelected(category)
-        setFilter({ category: category.name, page: 0})
+        setFilter({ category: category.name, page: 0 })
         return {
           ...category,
           isActive: true
@@ -52,7 +51,7 @@ const useCategories = (categoryName: string) => {
       }
       if (category.id === id && category.isActive) {
         setCategorySelected(null)
-        setFilter({ category: '', page: 0})
+        setFilter({ category: '', page: 0 })
         return {
           ...category,
           isActive: false

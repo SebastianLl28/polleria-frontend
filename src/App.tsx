@@ -12,10 +12,10 @@ const App = () => {
     <BrowserRouter>
       <Suspense fallback={<p>Loading...</p>}>
         <Routes>
-          <Route element={<PublicLayout/>}>
-            <Route path={PUBLIC_ROUTER.HOME} element={<HomePage/>}/>
-            <Route path={PUBLIC_ROUTER.PRODUCTS} element={<ProductsPage/>}/>
-            <Route path={PUBLIC_ROUTER.PRODUCT_DETAIL} element={<ProductDetailPage/>} />
+          <Route element={<PublicLayout />}>
+            <Route path={PUBLIC_ROUTER.HOME} element={<HomePage />} />
+            <Route path={PUBLIC_ROUTER.PRODUCTS} element={<ProductsPage />} />
+            <Route path={PUBLIC_ROUTER.PRODUCT_DETAIL} element={<ProductDetailPage />} />
           </Route>
         </Routes>
       </Suspense>

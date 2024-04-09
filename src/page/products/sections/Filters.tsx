@@ -1,11 +1,16 @@
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from '@/components/ui/select'
 import { useId } from 'react'
 import { useFilterProducts } from '../store/useFilterProducts'
 
 const Filters = () => {
-
   const searchProductId = useId()
 
   const { setFilter, filter } = useFilterProducts()
@@ -17,13 +22,19 @@ const Filters = () => {
 
   return (
     <div className='flex justify-between'>
-      <div className='max-w-md w-full'>
+      <div className='w-full max-w-md'>
         <Label htmlFor={searchProductId}>Buscar Producto</Label>
-        <Input type='text' placeholder='ejem: 1/4 de pollo' id={searchProductId} onChange={handleName} value={filter.partialProduct}/>
+        <Input
+          type='text'
+          placeholder='ejem: 1/4 de pollo'
+          id={searchProductId}
+          onChange={handleName}
+          value={filter.partialProduct}
+        />
       </div>
       <Select>
         <SelectTrigger className='w-60'>
-          <SelectValue placeholder='Filtrar por'/>
+          <SelectValue placeholder='Filtrar por' />
         </SelectTrigger>
         <SelectContent>
           <SelectItem value='1'>Option 1</SelectItem>
