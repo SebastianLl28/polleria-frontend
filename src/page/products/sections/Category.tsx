@@ -8,7 +8,6 @@ import {
 import CategoryCard from '../components/CategoryCard'
 import { Skeleton } from '@/components/ui/skeleton'
 import useCategories from '../hooks/useCategories'
-// import { useEffect } from 'react'
 import { useFilterProducts } from '../store/useFilterProducts'
 
 const Category = () => {
