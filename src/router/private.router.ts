@@ -1,4 +1,6 @@
 export const PRIVATE_ROUTER = {
-  DASHBOARD: '/dashboard',
-  PROFILE: '/profile'
+  PROFILE: '/profile',
+  FAVORITE: '/favorite',
+  PURCHASE: '/purchase',
+  ADDRESS: '/address'
 }
