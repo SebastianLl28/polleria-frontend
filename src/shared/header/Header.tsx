@@ -24,7 +24,7 @@ export const Header = () => {
               <Link to='/products'>Productos</Link>
             </li>
             <li>
-              <Link to='/'>Locales</Link>
+              <Link to='/locations'>Locales</Link>
             </li>
             <li>
               <Button className='size-12 rounded-full p-0' variant='ghost'>
@@ -64,7 +64,7 @@ export const Header = () => {
                     <Link to='/products'>Productos</Link>
                   </li>
                   <li>
-                    <Link to='/'>Locales</Link>
+                    <Link to='/locations'>Locales</Link>
                   </li>
                   <li>
                     <Button className='w-full text-xl'>Iniciar Sesión</Button>
