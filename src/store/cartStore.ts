@@ -5,7 +5,7 @@ import { persist } from 'zustand/middleware'
 interface IProduct extends Pick<ProductAdapter, "id" | "name" | "imageUrl" | "price"> {
 
 }
-interface IProductstore extends IProduct {
+export interface IProductstore extends IProduct {
 
   quantity: number
 }

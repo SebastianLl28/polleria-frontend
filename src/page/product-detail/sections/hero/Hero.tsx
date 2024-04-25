@@ -4,12 +4,14 @@ import Styles from './styles/background.module.css'
 import { Califications } from './shared'
 import { Button } from '@/components/ui/button'
 import useCartStore from '@/store/cartStore'
+import { useModalStore } from '@/store/modalStore'
 
 const Hero = ({ name, categoryList, description, imageUrl, price, id }: ProductAdapter) => {
 
   const {addItem} = useCartStore();
-
+  const { setIsOpen } = useModalStore()
   const handleFoodAdd = () => {
+    setIsOpen(true)
     addItem({id, name, price, imageUrl});
   }
 

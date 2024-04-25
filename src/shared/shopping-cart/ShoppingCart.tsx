@@ -1,5 +1,5 @@
 import { Sheet, SheetContent, SheetTitle } from '@/components/ui/sheet'
-import useCartStore from '@/store/cartStore'
+import useCartStore, { IProductstore } from '@/store/cartStore'
 import { useModalStore } from '@/store/modalStore'
 import { Button } from '@/components/ui/button'
 
@@ -8,11 +8,11 @@ const ShoppingCart = () => {
 
   const { items, removeItem, addItem } = useCartStore()
 
-  const handleRemove = (id) => {
-    removeItem(id); 
+  const handleRemove = (item: IProductstore) => {
+    removeItem(item); 
   };
 
-  const handleAdd = (item) => {
+  const handleAdd = (item: IProductstore) => {
     addItem(item); 
   };
 
@@ -21,23 +21,23 @@ const ShoppingCart = () => {
       <SheetContent className='overflow-y-scroll px-5 pt-10'>
         <SheetTitle className='py-2 '>Carrito de Compra</SheetTitle>
         {items.length === 0 && (
-          <p className='text-center'>No hay productos en el carrito</p>
+          <p className='text-center mt-5'>No hay productos en el carrito</p>
         )}
         {items.length > 0 && (
           <ul className='space-y-5'>
             {items.map(item => (
               <li key={item.id} className='overflow-hidden rounded'>
                 <img src={item.name} alt='' />
-                <div className='flex justify-between px-5 py-2'>
+                <div className='flex justify-between px-5 py-2 items-center'>
                   <img 
                     src={item.imageUrl} 
                     className='w-16 '
                     alt={item.name} />
                   <p>{item.name}</p>
-                  <div className='flex justify-center'>
+                  <div className='flex justify-center items-center'>
                     <Button 
                       className='w-5 h-8'
-                      onClick={() => handleRemove(item.id)}
+                      onClick={() => handleRemove(item)}
                     >
                       -
                     </Button>
@@ -59,20 +59,15 @@ const ShoppingCart = () => {
         
           <div className="bg-yellow-400 rounded-t-xl absolute inset-x-0 bottom-0 px-5 flex flex-col justify-center pb-5">
               <div className="total-price flex justify-between py-8">
-                <p className="text-[18px]">Precio</p>
-                {items.length > 0 && (
+                <p className="text-[18px] font-bold">Precio</p>
+                {items.length > -1 && (
                 <p className="text-[22px] font-bold text-slate-100">
                   {/* reduce(accumulated total, and current item) */}
                   {items.reduce((totalPrice, item) => totalPrice + (item.quantity * item.price), 0)}
                 </p>
-                )}      
-                {!items.length && (
-                <p className="text-[22px] font-bold text-slate-100">
-                  0
-                </p>
-                )}      
+                )}           
               </div>
-              <Button className="bg-green-400 rounded-2xl px-4 py-1">
+              <Button className="bg-green-500 rounded-2xl px-4 py-1" disabled={items.length === 0}>
                 Finalizar compra
               </Button>
             </div>
