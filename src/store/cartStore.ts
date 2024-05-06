@@ -2,14 +2,15 @@ import { ProductAdapter } from '@/adapters/product.adapter'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
-interface IProductstore extends ProductAdapter {
+interface IProduct extends Pick<ProductAdapter, 'id' | 'name' | 'imageUrl' | 'price'> {}
+export interface IProductstore extends IProduct {
   quantity: number
 }
 
 interface ICartStore {
   items: IProductstore[]
-  addItem: (item: ProductAdapter) => void
-  removeItem: (item: ProductAdapter) => void
+  addItem: (item: IProduct) => void
+  removeItem: (item: IProduct) => void
 }
 
 const useCartStore = create(

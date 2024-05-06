@@ -3,9 +3,12 @@ import { Button } from '@/components/ui/button'
 import { useModalStore } from '@/store/modalStore'
 import { CircleUserRound, Menu, ShoppingBasket } from 'lucide-react'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
+import useCartStore from '@/store/cartStore'
 
 export const Header = () => {
   const { setIsOpen } = useModalStore()
+
+  const { items } = useCartStore()
 
   return (
     <header className='sticky top-0 z-50 w-full border-b border-black bg-white py-4'>
@@ -34,10 +37,13 @@ export const Header = () => {
             <li>
               <Button
                 onClick={() => setIsOpen(true)}
-                className='size-12 rounded-full p-0'
+                className='size-12 rounded-full p-0 relative'
                 variant='ghost'
               >
                 <ShoppingBasket size={35} />
+                <span className='absolute -top-0.5 right-0 h-5 w-5 rounded-full bg-red-300'>
+                  {items.length}
+                </span>
               </Button>
             </li>
           </ul>
@@ -46,7 +52,7 @@ export const Header = () => {
           <Sheet>
             <SheetTrigger>
               <Button className='p-0' variant='ghost'>
-                <Menu size={35} />
+                <Menu size={30} />
               </Button>
             </SheetTrigger>
             <SheetContent className='w-full'>
