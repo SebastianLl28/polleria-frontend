@@ -37,11 +37,13 @@ export const Header = () => {
             <li>
               <Button
                 onClick={() => setIsOpen(true)}
-                className='size-12 rounded-full p-0'
+                className='size-12 rounded-full p-0 relative'
                 variant='ghost'
               >
                 <ShoppingBasket size={35} />
-                <span className='absolute inset-y-3 right-20 h-5 w-5 bg-red-300 rounded-full'>{items.length}</span>
+                <span className='absolute -top-0.5 right-0 h-5 w-5 rounded-full bg-red-300'>
+                  {items.length}
+                </span>
               </Button>
             </li>
           </ul>

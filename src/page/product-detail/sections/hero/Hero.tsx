@@ -6,13 +6,19 @@ import { Button } from '@/components/ui/button'
 import useCartStore from '@/store/cartStore'
 import { useModalStore } from '@/store/modalStore'
 
-const Hero = ({ name, categoryList, description, imageUrl, price, id }: ProductAdapter) => {
-
-  const {addItem} = useCartStore();
+const Hero = ({
+  name,
+  categoryList,
+  description,
+  imageUrl,
+  price,
+  id
+}: ProductAdapter) => {
+  const { addItem } = useCartStore()
   const { setIsOpen } = useModalStore()
   const handleFoodAdd = () => {
     setIsOpen(true)
-    addItem({id, name, price, imageUrl});
+    addItem({ id, name, price, imageUrl })
   }
 
   return (
@@ -30,9 +36,7 @@ const Hero = ({ name, categoryList, description, imageUrl, price, id }: ProductA
           <Califications />
           <p className='text-xl'>{description}</p>
           <div>
-            <Button 
-              onClick={handleFoodAdd}
-              className='bg-green-700 hover:bg-green-800'>
+            <Button onClick={handleFoodAdd} className='bg-green-700 hover:bg-green-800'>
               Agregar Al Carrito
             </Button>
           </div>
