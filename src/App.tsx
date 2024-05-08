@@ -7,7 +7,7 @@ import ProductDetailPage from './page/product-detail/ProductDetailPage'
 import LocationsPage from './page/locations/LocationsPage'
 
 import PrivateLayout from './layouts/private-layout/PrivateLayout'
-
+import LoadingPage from './shared/loading-page/LoadingPage'
 
 const HomePage = lazy(() => import('./page/home/HomePage'))
 const ProductsPage = lazy(() => import('./page/products/ProductsPage'))
@@ -20,7 +20,7 @@ const AddressPage = lazy(() => import('./page/address/AddressPage'))
 const App = () => {
   return (
     <BrowserRouter>
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense fallback={<LoadingPage />}>
         <Routes>
           <Route element={<PublicLayout />}>
             <Route path={PUBLIC_ROUTER.HOME} element={<HomePage />} />
@@ -35,7 +35,6 @@ const App = () => {
               <Route path={PRIVATE_ROUTER.PURCHASE} element={<PurcharsePage />} />
               <Route path={PRIVATE_ROUTER.ADDRESS} element={<AddressPage />} />
             </Route>
-
           </Route>
         </Routes>
       </Suspense>
