@@ -20,6 +20,7 @@ const Form = () => {
             height={450}
             loading='lazy'
             referrerPolicy='no-referrer-when-downgrade'
+            title='mapa de ubicación de la pollería'
           ></iframe>
         </figure>
         <form className='space-y-4 [&>div]:space-y-2'>

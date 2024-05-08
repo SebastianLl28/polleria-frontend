@@ -30,14 +30,20 @@ export const Header = () => {
               <Link to='/locations'>Locales</Link>
             </li>
             <li>
-              <Button className='size-12 rounded-full p-0' variant='ghost'>
+              <Button
+                className='size-12 rounded-full p-0'
+                variant='ghost'
+                type='button'
+                name='login button'
+                aria-label='login button'
+              >
                 <CircleUserRound size={35} />
               </Button>
             </li>
             <li>
               <Button
                 onClick={() => setIsOpen(true)}
-                className='size-12 rounded-full p-0 relative'
+                className='relative size-12 rounded-full p-0'
                 variant='ghost'
               >
                 <ShoppingBasket size={35} />
