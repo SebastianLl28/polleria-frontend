@@ -11,14 +11,11 @@ export const Header = () => {
   const { items } = useCartStore()
 
   return (
-    <header className='sticky top-0 z-50 w-full border-b border-black bg-white py-4'>
+    <header className='sticky top-0 z-50 w-full border-b border-black bg-white py-2'>
       <div className='container mx-auto flex items-center justify-between'>
         <div>
-          <Link
-            to='/'
-            className='flex h-12 w-36 items-center justify-center rounded bg-gray-300 font-bold'
-          >
-            Logo
+          <Link to='/'>
+            <img src='/logo.webp' alt='Logo polleria' className='w-14' />
           </Link>
         </div>
         <nav className='hidden sm:inline-block'>
