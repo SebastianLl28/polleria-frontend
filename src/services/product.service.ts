@@ -14,12 +14,16 @@ export const getProducts = async (filter: IFilterCategory) => {
     .then(res => res.data)
 }
 
-export const getProductByName = async (product: string) => {
+export const getProductById = async (productId: number) => {
   // await sleep(3)
+  return await baseApi.get<Product>(`/products/${productId}`).then(res => res.data)
+}
+
+export const getProductsByCategory = async (categoryName: string) => {
   return await baseApi
     .get<Pagination<Product>>('/products', {
       params: {
-        product
+        category: categoryName
       }
     })
     .then(res => res.data)

@@ -10,6 +10,7 @@ export interface ProductAdapter {
   detail_image: string
   valoration: number
   categoryList: string[]
+  galleryImages: string[]
 }
 
 export const productAdapter = (data: Product): ProductAdapter => ({
@@ -21,5 +22,6 @@ export const productAdapter = (data: Product): ProductAdapter => ({
   imageUrl: data.cardImage,
   status: data.status,
   categoryList: data.categoryList,
-  detail_image: data.detail_image
+  detail_image: data.detailImage,
+  galleryImages: data.galleryImages
 })

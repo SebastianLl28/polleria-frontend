@@ -10,7 +10,8 @@ const ProductCard = ({
   imageUrl,
   description,
   price,
-  valoration
+  valoration,
+  id
 }: ProductAdapter) => {
   // const { addItem } = useCartStore()
 
@@ -18,8 +19,9 @@ const ProductCard = ({
 
   const handleClick = () => {
     // addItem({ id, name, imageUrl, description, price, valoration })
-    const encodedName = encodeURIComponent(name)
-    navigate(`/products/${encodedName}`)
+    // const encodedName = encodeURIComponent(name)
+    // navigate(`/products/${encodedName}`)
+    navigate(`/products/${id}`)
   }
 
   return (

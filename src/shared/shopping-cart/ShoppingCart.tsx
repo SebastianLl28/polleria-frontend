@@ -56,13 +56,16 @@ const ShoppingCart = () => {
             {items.length > -1 && (
               <p className='text-[22px] font-bold text-slate-100'>
                 {/* reduce(accumulated total, and current item) */}
-                {items.reduce(
-                  (totalPrice, item) =>
-                    new Decimal(totalPrice).plus(
-                      new Decimal(item.quantity).times(item.price)
-                    ),
-                  new Decimal(0)
-                ).toFixed(2).toString()}
+                {items
+                  .reduce(
+                    (totalPrice, item) =>
+                      new Decimal(totalPrice).plus(
+                        new Decimal(item.quantity).times(item.price)
+                      ),
+                    new Decimal(0)
+                  )
+                  .toFixed(2)
+                  .toString()}
               </p>
             )}
           </div>

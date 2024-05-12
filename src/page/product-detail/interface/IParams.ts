@@ -1,4 +1,4 @@
 export interface IParams {
-  name: string
+  id: string
   [key: string]: string | undefined
 }

@@ -1,4 +1,8 @@
-import { getProductByName, getProducts } from '@/services/product.service'
+import {
+  getProductById,
+  getProducts,
+  getProductsByCategory
+} from '@/services/product.service'
 import { useQuery } from '@tanstack/react-query'
 import { productAdapter } from '@/adapters/product.adapter'
 import { useFilterProducts } from '@/page/products/store/useFilterProducts'
@@ -17,13 +21,28 @@ export const useGetProducts = () => {
   })
 }
 
-export const useGetProductByName = (name: string) =>
+export const useGetProductById = (id: number) =>
   useQuery({
-    queryKey: ['products', name],
-    queryFn: () => getProductByName(name),
+    queryKey: ['products', id],
+    queryFn: () => getProductById(id),
     refetchOnWindowFocus: false,
-    select: data => productAdapter(data.content[0]),
-    enabled: !!name,
+    select: data => productAdapter(data),
+    enabled: !!id,
     // cahce time 1 hour
     staleTime: 1000 * 60 * 60
   })
+
+export const useGetProductsByCategory = (categoryName: string) => {
+  return useQuery({
+    queryKey: ['products', categoryName],
+    queryFn: () => getProductsByCategory(categoryName),
+    refetchOnWindowFocus: false,
+    select: data => ({
+      ...data,
+      content: data.content.map(productAdapter)
+    }),
+    enabled: !!categoryName,
+    // cahce time 1 hour
+    staleTime: 1000 * 60 * 60
+  })
+}

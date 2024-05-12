@@ -5,7 +5,8 @@ export interface Product {
   price: number
   cardImage: string
   status: boolean
-  detail_image: string
+  detailImage: string
   valoration: number
   categoryList: string[]
+  galleryImages: string[]
 }

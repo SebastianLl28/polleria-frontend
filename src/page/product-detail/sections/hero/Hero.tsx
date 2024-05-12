@@ -41,8 +41,8 @@ const Hero = ({
             </Button>
           </div>
         </div>
-        <div className='relative'>
-          <img src={imageUrl} alt={name} className='' />
+        <div className='relative flex justify-end'>
+          <img src={imageUrl} alt={name} className='max-w-md' />
           <div className={Styles.backgroundImage}></div>
         </div>
       </div>
