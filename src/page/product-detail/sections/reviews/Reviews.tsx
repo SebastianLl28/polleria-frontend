@@ -25,7 +25,7 @@ const Reviews = ({ dependecy, id, valoration }: ReviewsProps) => {
             <li key={valoration.id} className='grid'>
               <div className='flex items-center gap-2'>
                 <img src='/user.svg' alt='' className='row-span-2 w-8' />
-                <span>
+                <span className='font-semibold'>
                   {valoration.customerName} {valoration.customerLastName}
                 </span>
               </div>
