@@ -1,4 +1,3 @@
-import { Star } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 interface CategoryCardProps {
@@ -21,7 +20,7 @@ const CategoryCard = ({ name, image, valoration, id }: CategoryCardProps) => {
           <p className='text-lg font-semibold'>{name}</p>
           <div className='flex items-center gap-1'>
             <p>{valoration}</p>
-            <Star className='size-4 text-yellow-500' />
+            <img src='/star.svg' alt='star icon' />
           </div>
         </div>
       </Link>

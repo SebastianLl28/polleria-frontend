@@ -5,10 +5,11 @@ import { ArrowRight } from 'lucide-react'
 interface CategoriesProps {
   categoryName: string
   idProduct: number
+  dependecy: boolean
 }
 
-const Categories = ({ categoryName, idProduct }: CategoriesProps) => {
-  const { data, isLoading, isSuccess } = useGetProductsByCategory(categoryName)
+const Categories = ({ categoryName, idProduct, dependecy }: CategoriesProps) => {
+  const { data, isLoading, isSuccess } = useGetProductsByCategory(categoryName, dependecy)
 
   return (
     <section>

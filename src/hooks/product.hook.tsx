@@ -29,10 +29,11 @@ export const useGetProductById = (id: number) =>
     select: data => productAdapter(data),
     enabled: !!id,
     // cahce time 1 hour
-    staleTime: 1000 * 60 * 60
+    staleTime: 1000 * 60 * 60,
+    retry: false
   })
 
-export const useGetProductsByCategory = (categoryName: string) => {
+export const useGetProductsByCategory = (categoryName: string, dependecy: boolean) => {
   return useQuery({
     queryKey: ['products', categoryName],
     queryFn: () => getProductsByCategory(categoryName),
@@ -41,7 +42,7 @@ export const useGetProductsByCategory = (categoryName: string) => {
       ...data,
       content: data.content.map(productAdapter)
     }),
-    enabled: !!categoryName,
+    enabled: !!categoryName && dependecy,
     // cahce time 1 hour
     staleTime: 1000 * 60 * 60
   })

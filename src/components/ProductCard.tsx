@@ -1,6 +1,7 @@
 import { ProductAdapter } from '@/adapters/product.adapter'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import Decimal from 'decimal.js-light'
 // import useCartStore from '@/store/cartStore'
 import { Star } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
@@ -44,7 +45,8 @@ const ProductCard = ({
         </p>
       </CardContent>
       <Badge className='absolute right-4 top-4 space-x-1 text-base' variant={'secondary'}>
-        <span>{valoration}</span>
+        {/* <span>{valoration}</span> */}
+        <span>{new Decimal(valoration).toFixed(0).toString()}</span>
         <Star size={18} />
       </Badge>
     </Card>

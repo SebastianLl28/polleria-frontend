@@ -1,3 +1,4 @@
+import { round } from '@/lib/decimal'
 import { Product } from '@/model/Product.model'
 
 export interface ProductAdapter {
@@ -18,7 +19,7 @@ export const productAdapter = (data: Product): ProductAdapter => ({
   name: data.name,
   description: data.description,
   price: data.price,
-  valoration: data.valoration,
+  valoration: Number(round(data.valoration, 0)),
   imageUrl: data.cardImage,
   status: data.status,
   categoryList: data.categoryList,

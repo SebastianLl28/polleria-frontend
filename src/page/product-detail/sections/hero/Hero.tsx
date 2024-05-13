@@ -12,7 +12,8 @@ const Hero = ({
   description,
   imageUrl,
   price,
-  id
+  id,
+  valoration
 }: ProductAdapter) => {
   const { addItem } = useCartStore()
   const { setIsOpen } = useModalStore()
@@ -33,7 +34,7 @@ const Hero = ({
               </Badge>
             ))}
           </div>
-          <Califications />
+          <Califications valoration={valoration} />
           <p className='text-xl'>{description}</p>
           <div>
             <Button onClick={handleFoodAdd} className='bg-green-700 hover:bg-green-800'>
