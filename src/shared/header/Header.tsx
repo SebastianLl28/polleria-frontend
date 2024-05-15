@@ -1,25 +1,35 @@
 import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { useModalStore } from '@/store/modalStore'
-import { CircleUserRound, Menu, ShoppingBasket } from 'lucide-react'
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
+import { CircleUserRound, MapPin, ShoppingBasket } from 'lucide-react'
+// import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import useCartStore from '@/store/cartStore'
+import { useLocationModalStore } from '@/store/localModalStore'
 
 export const Header = () => {
   const { setIsOpen } = useModalStore()
 
   const { items } = useCartStore()
 
+  const { setIsOpen: setIsOpenLocalModalStore } = useLocationModalStore()
+
   return (
     <header className='sticky top-0 z-50 w-full border-b border-black bg-white py-2'>
       <div className='container mx-auto flex items-center justify-between'>
+        <div
+          className='flex cursor-pointer items-center gap-2 rounded-md p-3 pr-4 hover:bg-slate-100'
+          onClick={() => setIsOpenLocalModalStore(true)}
+        >
+          <MapPin />
+          <p className='font-semibold'>¿De tienda quieres recibir tu pedido?</p>
+        </div>
         <div>
           <Link to='/'>
             <img src='/logo.webp' alt='Logo polleria' className='w-14' />
           </Link>
         </div>
         <nav className='hidden sm:inline-block'>
-          <ul className='flex items-center gap-4'>
+          <ul className='flex items-center gap-4 font-semibold'>
             <li>
               <Link to='/products'>Productos</Link>
             </li>
@@ -51,38 +61,6 @@ export const Header = () => {
             </li>
           </ul>
         </nav>
-        <div className='sm:hidden'>
-          <Sheet>
-            <SheetTrigger>
-              <Button className='p-0' variant='ghost'>
-                <Menu size={30} />
-              </Button>
-            </SheetTrigger>
-            <SheetContent className='w-full'>
-              <nav className='h-full w-full'>
-                <ul className='flex h-full w-full flex-col items-center justify-center gap-4 text-xl'>
-                  <li>
-                    <Link
-                      to='/'
-                      className='flex h-12 w-36 items-center justify-center rounded bg-gray-300 font-bold'
-                    >
-                      Logo
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='/products'>Productos</Link>
-                  </li>
-                  <li>
-                    <Link to='/locations'>Locales</Link>
-                  </li>
-                  <li>
-                    <Button className='w-full text-xl'>Iniciar Sesión</Button>
-                  </li>
-                </ul>
-              </nav>
-            </SheetContent>
-          </Sheet>
-        </div>
       </div>
     </header>
   )
