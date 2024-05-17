@@ -5,31 +5,44 @@ import {
   AlertDialogFooter,
   AlertDialogTitle
 } from '@/components/ui/alert-dialog'
-import { useGetLocations } from '@/hooks/location.hook'
 import { useLocationModalStore } from '@/store/localModalStore'
+import useListLocation from './hook/useListLocation'
+import { useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useLocationSelectedStore } from '@/store/locationSelectedStore'
+import CardLocation from './component/CardLocation'
 
 const StoreDialog = () => {
   const { isOpen, setIsOpen } = useLocationModalStore()
 
-  const { data, isLoading, isSuccess } = useGetLocations(isOpen)
+  const { isLoading, isSuccess, handleSelectLocation, locationStatus } = useListLocation()
+
+  const { pathname } = useLocation()
+
+  const { selected } = useLocationSelectedStore()
+
+  useEffect(() => {
+    if (pathname.includes('/products/') && selected === null) {
+      setIsOpen(true)
+    }
+  }, [pathname, setIsOpen, selected])
 
   return (
     <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
       <AlertDialogContent>
-        <AlertDialogTitle className='text-center'>Locales</AlertDialogTitle>
+        <AlertDialogTitle className='text-center'>
+          Seleccione la tienda más cercana
+        </AlertDialogTitle>
         <ul className='space-y-4'>
           {!isLoading &&
             isSuccess &&
-            data.content.map(store => (
-              <li
+            locationStatus &&
+            locationStatus?.map(store => (
+              <CardLocation
                 key={store.id}
-                className='cursor-pointer rounded border p-3 transition-colors hover:bg-gray-50'
-              >
-                <p className='font-semibold'>{store.name}</p>
-                <p title={store.address} className='line-clamp-1'>
-                  {store.address}
-                </p>
-              </li>
+                {...store}
+                handleSelectLocation={handleSelectLocation}
+              />
             ))}
         </ul>
         <AlertDialogFooter>

@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { useModalStore } from '@/store/modalStore'
 import { CircleUserRound, MapPin, ShoppingBasket } from 'lucide-react'
-// import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import useCartStore from '@/store/cartStore'
 import { useLocationModalStore } from '@/store/localModalStore'
+import { useLocationSelectedStore } from '@/store/locationSelectedStore'
 
 export const Header = () => {
   const { setIsOpen } = useModalStore()
@@ -12,6 +12,8 @@ export const Header = () => {
   const { items } = useCartStore()
 
   const { setIsOpen: setIsOpenLocalModalStore } = useLocationModalStore()
+
+  const { selected } = useLocationSelectedStore()
 
   return (
     <header className='sticky top-0 z-50 w-full border-b border-black bg-white py-2'>
@@ -21,7 +23,9 @@ export const Header = () => {
           onClick={() => setIsOpenLocalModalStore(true)}
         >
           <MapPin />
-          <p className='font-semibold'>¿De tienda quieres recibir tu pedido?</p>
+          <p className='font-semibold'>
+            {selected ? selected.name : '¿De tienda quieres recibir tu pedido?'}
+          </p>
         </div>
         <div>
           <Link to='/'>
