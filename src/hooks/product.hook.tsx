@@ -4,7 +4,7 @@ import {
   getProductsByCategory
 } from '@/services/product.service'
 import { useQuery } from '@tanstack/react-query'
-import { productAdapter } from '@/adapters/product.adapter'
+import { productAdapter, productStockAdapter } from '@/adapters/product.adapter'
 import { useFilterProducts } from '@/page/products/store/useFilterProducts'
 
 export const useGetProducts = () => {
@@ -26,7 +26,7 @@ export const useGetProductById = (id: number) =>
     queryKey: ['products', id],
     queryFn: () => getProductById(id),
     refetchOnWindowFocus: false,
-    select: data => productAdapter(data),
+    select: data => productStockAdapter(data),
     enabled: !!id,
     // cahce time 1 hour
     staleTime: 1000 * 60 * 60,

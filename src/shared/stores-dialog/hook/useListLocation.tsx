@@ -9,7 +9,7 @@ interface LocationStatus extends LocationAdapter {
 }
 
 const useListLocation = () => {
-  const { setSelected } = useLocationSelectedStore()
+  const { setSelected, selected } = useLocationSelectedStore()
 
   const { isOpen } = useLocationModalStore()
 
@@ -22,13 +22,16 @@ const useListLocation = () => {
   useEffect(() => {
     if (data && isSuccess && !isLoading) {
       setLocationStatus(
-        data.content.map(location => ({
-          ...location,
-          selected: false
-        }))
+        data.content.map(location => {
+          if (selected && selected.id === location.id) {
+            setIsSelected(true)
+            return { ...location, selected: true }
+          }
+          return { ...location, selected: false }
+        })
       )
     }
-  }, [data, isLoading, isSuccess])
+  }, [data, isLoading, isSuccess, selected])
 
   const handleSelectLocation = (id: number) => {
     if (locationStatus) {

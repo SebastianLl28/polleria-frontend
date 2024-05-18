@@ -10,3 +10,10 @@ export interface Product {
   categoryList: string[]
   galleryImages: string[]
 }
+
+export interface ProductStock extends Product {
+  stock: {
+    store: string
+    quantity: number
+  }[]
+}

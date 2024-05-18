@@ -1,29 +1,33 @@
-import { ProductAdapter } from '@/adapters/product.adapter'
+import { ProductStockAdapter } from '@/adapters/product.adapter'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
-interface IProduct extends Pick<ProductAdapter, 'id' | 'name' | 'imageUrl' | 'price'> {}
+interface IProduct
+  extends Pick<ProductStockAdapter, 'id' | 'name' | 'imageUrl' | 'price' | 'stock'> {}
 export interface IProductstore extends IProduct {
   quantity: number
 }
 
 interface ICartStore {
   items: IProductstore[]
-  addItem: (item: IProduct) => void
+  addItem: (item: IProduct, number?: number) => void
   removeItem: (item: IProduct) => void
+  findItem: (id: number) => IProductstore | undefined
+  setQuantity: (id: number, quantity: number) => void
+  deleteItem: (id: number) => void
 }
 
 const useCartStore = create(
   persist<ICartStore>(
-    set => ({
+    (set, get) => ({
       items: [],
-      addItem: item => {
+      addItem: (item, number = 1) => {
         set(state => {
           const index = state.items.findIndex(i => i.id === item.id)
           if (index === -1) {
-            return { items: [...state.items, { ...item, quantity: 1 }] }
+            return { items: [...state.items, { ...item, quantity: number }] }
           }
-          state.items[index].quantity++
+          state.items[index].quantity += number
           return { items: [...state.items] }
         })
       },
@@ -38,6 +42,24 @@ const useCartStore = create(
             return { items: [...state.items] }
           }
           return { items: state.items.filter(i => i.id !== item.id) }
+        })
+      },
+      findItem: id => {
+        return get().items.find(i => i.id === id) || undefined
+      },
+      setQuantity: (id, quantity) => {
+        set(state => {
+          const index = state.items.findIndex(i => i.id === id)
+          if (index === -1) {
+            return { items: [...state.items] }
+          }
+          state.items[index].quantity = quantity
+          return { items: [...state.items] }
+        })
+      },
+      deleteItem: id => {
+        set(state => {
+          return { items: state.items.filter(i => i.id !== id) }
         })
       }
     }),

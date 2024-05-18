@@ -1,6 +1,5 @@
 import {
   AlertDialog,
-  AlertDialogCancel,
   AlertDialogContent,
   AlertDialogFooter,
   AlertDialogTitle
@@ -11,6 +10,7 @@ import { useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import { useLocationSelectedStore } from '@/store/locationSelectedStore'
 import CardLocation from './component/CardLocation'
+import { Button } from '@/components/ui/button'
 
 const StoreDialog = () => {
   const { isOpen, setIsOpen } = useLocationModalStore()
@@ -26,6 +26,13 @@ const StoreDialog = () => {
       setIsOpen(true)
     }
   }, [pathname, setIsOpen, selected])
+
+  const handleClose = () => {
+    if (pathname.includes('/products/') && selected === null) {
+      return
+    }
+    setIsOpen(false)
+  }
 
   return (
     <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
@@ -46,7 +53,13 @@ const StoreDialog = () => {
             ))}
         </ul>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cerrar</AlertDialogCancel>
+          <Button
+            variant='outline'
+            onClick={handleClose}
+            disabled={pathname.includes('/products/') && selected === null}
+          >
+            Cerrar
+          </Button>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
