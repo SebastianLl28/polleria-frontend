@@ -83,13 +83,15 @@ const Hero = ({
     <section className='bg-gray-900 py-20 text-white'>
       <div className='container grid grid-cols-2'>
         <div className='space-y-8'>
-          <h1 className='text-6xl font-bold leading-snug'>{name}</h1>
-          <div className='flex gap-2'>
-            {categoryList.map(category => (
-              <Badge key={category} className='text-sm'>
-                {category}
-              </Badge>
-            ))}
+          <div>
+            <h1 className='text-6xl font-bold leading-snug'>{name}</h1>
+            <div className='flex gap-2'>
+              {categoryList.map(category => (
+                <Badge key={category} className='text-sm'>
+                  {category}
+                </Badge>
+              ))}
+            </div>
           </div>
           <Califications valoration={valoration} />
           <p className='text-xl'>{description}</p>

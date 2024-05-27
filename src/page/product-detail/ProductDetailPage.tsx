@@ -9,7 +9,6 @@ import { useEffect } from 'react'
 
 const ProductDetailPage = () => {
   const { id } = useParams<IParams>()
-  // const productName = decodeURIComponent(name || '')
 
   const { data, isLoading, isSuccess, isError } = useGetProductById(Number(id))
 
