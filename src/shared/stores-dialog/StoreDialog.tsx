@@ -34,9 +34,15 @@ const StoreDialog = () => {
     setIsOpen(false)
   }
 
+  const handleEsc = (e: Event) => {
+    if (pathname.includes('/products/') && selected === null) {
+      e.preventDefault()
+    }
+  }
+
   return (
     <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
-      <AlertDialogContent>
+      <AlertDialogContent onEscapeKeyDown={handleEsc}>
         <AlertDialogTitle className='text-center'>
           Seleccione la tienda más cercana
         </AlertDialogTitle>
