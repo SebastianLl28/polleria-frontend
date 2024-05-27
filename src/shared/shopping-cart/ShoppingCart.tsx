@@ -3,16 +3,20 @@ import { useModalStore } from '@/store/modalStore'
 import Footer from './sections/Footer'
 import Body from './sections/Body'
 import Header from './sections/Header'
+import useCartStore from '@/store/cartStore'
 
 const ShoppingCart = () => {
   const { isOpen, setIsOpen } = useModalStore()
+  const { items } = useCartStore()
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
-      <SheetContent className='overflow-y-scroll px-5 pt-10'>
+      <SheetContent className='flex flex-col border-none bg-gray-100 p-0' hideCloseButton>
         <Header />
-        <Body />
-        <Footer />
+        <div className='flex flex-grow basis-1 flex-col justify-between'>
+          <Body />
+          {items.length !== 0 && <Footer />}
+        </div>
       </SheetContent>
     </Sheet>
   )

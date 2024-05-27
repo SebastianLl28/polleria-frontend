@@ -3,7 +3,10 @@ import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
 interface IProduct
-  extends Pick<ProductStockAdapter, 'id' | 'name' | 'imageUrl' | 'price' | 'stock'> {}
+  extends Pick<
+    ProductStockAdapter,
+    'id' | 'name' | 'imageUrl' | 'price' | 'stock' | 'description'
+  > {}
 export interface IProductstore extends IProduct {
   quantity: number
 }

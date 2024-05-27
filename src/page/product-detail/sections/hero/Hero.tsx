@@ -26,7 +26,7 @@ const Hero = ({
   const handleFoodAdd = () => {
     const item = findItem(id)
     if (!item) {
-      addItem({ id, name, price, imageUrl, stock }, count)
+      addItem({ id, name, price, imageUrl, stock, description }, count)
       setIsOpen(true)
       return
     }
@@ -37,7 +37,7 @@ const Hero = ({
     if (item.quantity + count > stockSelected.quantity) return
 
     setIsOpen(true)
-    addItem({ id, name, price, imageUrl, stock }, count)
+    addItem({ id, name, price, imageUrl, stock, description }, count)
   }
 
   const [isError, setIsError] = useState(false)
