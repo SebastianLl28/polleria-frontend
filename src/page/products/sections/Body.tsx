@@ -15,7 +15,7 @@ const Body = () => {
 
   return (
     <div className='space-y-10'>
-      <ul className='grid grid-cols-4 gap-10'>
+      <ul className='grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4'>
         {isLoading &&
           Array.from({ length: 12 }).map((_, index) => (
             <Skeleton key={index} className='h-52 w-full p-2' />

@@ -43,8 +43,8 @@ const Category = () => {
               </CarouselItem>
             ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className='translate-x-8 md:translate-x-12' />
+        <CarouselNext className='-translate-x-8 md:-translate-x-12' />
       </Carousel>
     </section>
   )
