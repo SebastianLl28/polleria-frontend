@@ -1,6 +1,5 @@
 import { baseApi } from '@/api/baseApi'
 import { IFilterCategory } from '@/interfaces/IFilterCategory.interface'
-// import { sleep } from '@/lib/sleep'
 import { Pagination } from '@/model/Pagination.model'
 import { Product, ProductStock } from '@/model/Product.model'
 
