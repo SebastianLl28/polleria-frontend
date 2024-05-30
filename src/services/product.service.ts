@@ -5,6 +5,8 @@ import { Pagination } from '@/model/Pagination.model'
 import { Product, ProductStock } from '@/model/Product.model'
 
 export const getProducts = async (filter: IFilterCategory) => {
+  // await sleep(2)
+  throw new Error('errorrrrr')
   return await baseApi
     .get<Pagination<Product>>('/products', {
       params: {
