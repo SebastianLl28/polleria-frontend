@@ -23,8 +23,16 @@ const Body = () => {
           ))}
         {!isLoading &&
           isSuccess &&
-          data.content.length > 0 &&
-          data.content.map(product => <ProductCard key={product.id} {...product} />)}
+          (data.content.length > 0 ? (
+            data.content.map(product => <ProductCard key={product.id} {...product} />)
+          ) : (
+            <div className='col-span-4 flex flex-col items-center text-gray-500'>
+              <Frown size={40} />
+              <p className='max-w-prose text-pretty text-center'>
+                No encontramos productos que coincidan con tu búsqueda.
+              </p>
+            </div>
+          ))}
       </ul>
       {isError && (
         <div className='flex flex-col items-center text-gray-500'>
