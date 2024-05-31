@@ -7,6 +7,7 @@ export default defineConfig({
     viewportHeight: 1080,
     setupNodeEvents(on, config) {
       // implement node event listeners here
-    }
+    },
+    hideXHRInCommandLog: true
   }
 })

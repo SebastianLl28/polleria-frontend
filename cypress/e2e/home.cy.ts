@@ -1,4 +1,6 @@
-describe('home spec', () => {
+describe('Home page', () => {
+  beforeEach(() => {})
+
   it('Visits the home page', () => {
     cy.visit('/')
   })
