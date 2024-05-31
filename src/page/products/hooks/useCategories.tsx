@@ -11,7 +11,7 @@ const useCategories = (categoryName: string) => {
   const { setFilter } = useFilterProducts()
 
   // initial data
-  const { isLoading, isSuccess, data: initialData } = useGetCategories()
+  const { isLoading, isSuccess, data: initialData, isError } = useGetCategories()
 
   // set data with isActive
   const [categories, setCategories] = useState<null | ICategoryState[]>()
@@ -65,7 +65,7 @@ const useCategories = (categoryName: string) => {
     setCategories(newCategory)
   }
 
-  return { isLoading, isSuccess, handleCategory, categories, categorySelected }
+  return { isLoading, isSuccess, handleCategory, categories, categorySelected, isError }
 }
 
 export default useCategories

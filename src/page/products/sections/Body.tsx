@@ -3,6 +3,7 @@ import ProductCard from '@/components/ProductCard'
 import { Skeleton } from '@/components/ui/skeleton'
 import { useGetProducts } from '@/hooks/product.hook'
 import { useFilterProducts } from '../store/useFilterProducts'
+import { Frown } from 'lucide-react'
 
 const Body = () => {
   const { filter, setFilter } = useFilterProducts()
@@ -20,17 +21,20 @@ const Body = () => {
           Array.from({ length: 12 }).map((_, index) => (
             <Skeleton key={index} className='h-52 w-full p-2' />
           ))}
-        {isError && (
-          <div className='absolute justify-center font-bold'>
-            <h1 className='text-6xl'>Uuups! No eres tu, somos nosotros</h1>
-            <span className='text-xl'>Estamos presentando problemas internos</span>
-          </div>
-        )}
         {!isLoading &&
           isSuccess &&
           data.content.length > 0 &&
           data.content.map(product => <ProductCard key={product.id} {...product} />)}
       </ul>
+      {isError && (
+        <div className='flex flex-col items-center text-gray-500'>
+          <Frown size={40} />
+          <p className='max-w-prose text-pretty text-center'>
+            No pudimos cargar los productos en este momento. Por favor, intenta nuevamente
+            más tarde.
+          </p>
+        </div>
+      )}
       <Pagination
         total={data?.totalPages ?? 0}
         current={filter.page + 1}
