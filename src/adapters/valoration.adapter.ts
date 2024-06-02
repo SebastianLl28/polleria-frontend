@@ -1,4 +1,4 @@
-import { Valoration } from '@/model/valoration.model'
+import { Valoration } from '@/model/Valoration.model'
 
 interface ValorationAdapter {
   id: number
