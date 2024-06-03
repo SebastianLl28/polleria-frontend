@@ -1,10 +1,10 @@
 import { expect, describe, test } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import About from '@/page/home/sections/About'
+import Home from '@/page/home/HomePage'
 
 describe('HomePage', () => {
-  test('should render about section', () => {
-    render(<About />)
+  test('should render home component', () => {
+    render(<Home />)
     expect(screen.getByText('¿Quienes somos?')).toBeDefined()
   })
 })
