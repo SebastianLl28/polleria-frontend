@@ -4,6 +4,7 @@ import FloatingButton from '@/shared/floating-button/FloatingButton'
 import ShoppingCart from '@/shared/shopping-cart/ShoppingCart'
 import { useEffect } from 'react'
 import StoreDialog from '@/shared/stores-dialog/StoreDialog'
+import Login from '@/shared/login/Login'
 
 const PublicLayout = () => {
   const { pathname } = useLocation()
@@ -14,6 +15,7 @@ const PublicLayout = () => {
 
   return (
     <main>
+      <Login />
       <StoreDialog />
       <ShoppingCart />
       <Header />

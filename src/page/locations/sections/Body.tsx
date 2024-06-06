@@ -2,7 +2,7 @@ import LocationCard from '@/components/LocationCard'
 import { useGetLocations } from '@/hooks/location.hook'
 
 const Body = () => {
-  const { data, isLoading, isError, isSuccess } = useGetLocations()
+  const { data, isLoading, isError, isSuccess } = useGetLocations(null)
 
   return (
     <div className='flex flex-wrap justify-center space-y-10'>

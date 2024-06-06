@@ -9,11 +9,12 @@ import CategoryCard from '../components/CategoryCard'
 import { Skeleton } from '@/components/ui/skeleton'
 import useCategories from '../hooks/useCategories'
 import { useFilterProducts } from '../store/useFilterProducts'
+import { Frown } from 'lucide-react'
 
 const Category = () => {
   const { filter } = useFilterProducts()
 
-  const { categories, handleCategory, isLoading, isSuccess } = useCategories(
+  const { categories, handleCategory, isLoading, isSuccess, isError } = useCategories(
     filter.category
   )
 
@@ -43,9 +44,18 @@ const Category = () => {
               </CarouselItem>
             ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className='translate-x-8 md:translate-x-12' />
+        <CarouselNext className='-translate-x-8 md:-translate-x-12' />
       </Carousel>
+      {isError && (
+        <div className='flex flex-col items-center text-gray-500'>
+          <Frown size={40} />
+          <p className='max-w-prose text-pretty text-center'>
+            No pudimos cargar las categorías en este momento. Por favor, intenta
+            nuevamente más tarde.
+          </p>
+        </div>
+      )}
     </section>
   )
 }

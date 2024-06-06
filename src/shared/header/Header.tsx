@@ -5,6 +5,7 @@ import { CircleUserRound, MapPin, ShoppingBasket } from 'lucide-react'
 import useCartStore from '@/store/cartStore'
 import { useLocationModalStore } from '@/store/localModalStore'
 import { useLocationSelectedStore } from '@/store/locationSelectedStore'
+import { useLoginModalStore } from '@/store/loginModalStore'
 
 export const Header = () => {
   const { setIsOpen } = useModalStore()
@@ -14,6 +15,8 @@ export const Header = () => {
   const { setIsOpen: setIsOpenLocalModalStore } = useLocationModalStore()
 
   const { selected } = useLocationSelectedStore()
+
+  const { open } = useLoginModalStore()
 
   return (
     <header className='sticky top-0 z-50 w-full border-b border-black bg-white py-2'>
@@ -47,6 +50,7 @@ export const Header = () => {
                 type='button'
                 name='login button'
                 aria-label='login button'
+                onClick={open}
               >
                 <CircleUserRound size={35} />
               </Button>

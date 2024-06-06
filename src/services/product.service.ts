@@ -14,7 +14,6 @@ export const getProducts = async (filter: IFilterCategory) => {
 }
 
 export const getProductById = async (productId: number) => {
-  // await sleep(3)
   return await baseApi.get<ProductStock>(`/products/${productId}`).then(res => res.data)
 }
 

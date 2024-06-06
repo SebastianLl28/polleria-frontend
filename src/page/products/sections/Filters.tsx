@@ -21,8 +21,8 @@ const Filters = () => {
   }
 
   return (
-    <div className='flex justify-between'>
-      <div className='w-full max-w-md'>
+    <div className='flex flex-col justify-between space-y-6 md:flex-row md:items-end md:space-y-0'>
+      <div className='w-full sm:max-w-md'>
         <Label htmlFor={searchProductId}>Buscar Producto</Label>
         <Input
           type='text'
@@ -33,7 +33,7 @@ const Filters = () => {
         />
       </div>
       <Select>
-        <SelectTrigger className='w-60'>
+        <SelectTrigger className='w-full sm:w-60'>
           <SelectValue placeholder='Filtrar por' />
         </SelectTrigger>
         <SelectContent>
