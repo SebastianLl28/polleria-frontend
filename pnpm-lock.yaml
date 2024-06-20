@@ -44,15 +44,12 @@ importers:
       decimal.js-light:
         specifier: ^2.5.1
         version: 2.5.1
-      embla-carousel:
-        specifier: ^7
-        version: 7.1.0
       embla-carousel-autoplay:
-        specifier: ^7
-        version: 7.1.0(embla-carousel@7.1.0)
+        specifier: ^8
+        version: 8.1.5(embla-carousel@8.1.5)
       embla-carousel-react:
-        specifier: ^7
-        version: 7.1.0(react@18.3.1)
+        specifier: ^8
+        version: 8.1.5(react@18.3.1)
       framer-motion:
         specifier: ^11.0.20
         version: 11.2.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1559,18 +1556,23 @@ packages:
   electron-to-chromium@1.4.788:
     resolution: {integrity: sha512-ubp5+Ev/VV8KuRoWnfP2QF2Bg+O2ZFdb49DiiNbz2VmgkIqrnyYaqIOqj8A6K/3p1xV0QcU5hBQ1+BmB6ot1OA==}
 
-  embla-carousel-autoplay@7.1.0:
-    resolution: {integrity: sha512-nYfgSGn3ek44OzwO0t/Ptuxq4PNPD5l7Y9X7JjLYI/DN1uGjqxz9L73YYqR6YCRDnTYJ88s9fep48dzBnSG4vQ==}
+  embla-carousel-autoplay@8.1.5:
+    resolution: {integrity: sha512-9pHIezRqiO9yism7wRFwmM1j/W9c9hBNX4hq3F4aTPbK84M0M57ryG8QUwhbsTGJbDoBBVTm//YEd0T6i/5YgA==}
     peerDependencies:
-      embla-carousel: 7.1.0
+      embla-carousel: 8.1.5
 
-  embla-carousel-react@7.1.0:
-    resolution: {integrity: sha512-tbYRPRZSDNd2QLNqYDcArAakGIxtUbhS7tkP0dGXktXHGgcX+3ji3VrOUTOftBiujZrMV8kRxtrRUe/1soloIQ==}
+  embla-carousel-react@8.1.5:
+    resolution: {integrity: sha512-xFmfxgJd7mpWDHQ4iyK1Qs+5BTTwu4bkn+mSROKiUH9nKpPHTeilQ+rpeQDCHRrAPeshD67aBk0/p6FxWxXsng==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.1 || ^18.0.0
 
-  embla-carousel@7.1.0:
-    resolution: {integrity: sha512-Bh8Pa8NWzgugLkf8sAGexQlBCNDFaej5BXiKgQdRJ1mUC9NWBrw9Z23YVPVGkguWoz5LMjZXXFVGCobl3UPt/Q==}
+  embla-carousel-reactive-utils@8.1.5:
+    resolution: {integrity: sha512-76uZTrSaEGGta+qpiGkMFlLK0I7N04TdjZ2obrBhyggYIFDWlxk1CriIEmt2lisLNsa1IYXM85kr863JoCMSyg==}
+    peerDependencies:
+      embla-carousel: 8.1.5
+
+  embla-carousel@8.1.5:
+    resolution: {integrity: sha512-R6xTf7cNdR2UTNM6/yUPZlJFRmZSogMiRjJ5vXHO65II5MoUlrVYUAP0fHQei/py82Vf15lj+WI+QdhnzBxA2g==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -4835,16 +4837,21 @@ snapshots:
 
   electron-to-chromium@1.4.788: {}
 
-  embla-carousel-autoplay@7.1.0(embla-carousel@7.1.0):
+  embla-carousel-autoplay@8.1.5(embla-carousel@8.1.5):
     dependencies:
-      embla-carousel: 7.1.0
+      embla-carousel: 8.1.5
 
-  embla-carousel-react@7.1.0(react@18.3.1):
+  embla-carousel-react@8.1.5(react@18.3.1):
     dependencies:
-      embla-carousel: 7.1.0
+      embla-carousel: 8.1.5
+      embla-carousel-reactive-utils: 8.1.5(embla-carousel@8.1.5)
       react: 18.3.1
 
-  embla-carousel@7.1.0: {}
+  embla-carousel-reactive-utils@8.1.5(embla-carousel@8.1.5):
+    dependencies:
+      embla-carousel: 8.1.5
+
+  embla-carousel@8.1.5: {}
 
   emoji-regex@8.0.0: {}
 
