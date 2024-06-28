@@ -17,7 +17,7 @@ const Promotion = () => {
       >
         <CarouselContent>
           {products.map(product => (
-            <CarouselItem className='basis-1/4' key={product.title}>
+            <CarouselItem className='basis-1/2 lg:basis-1/4' key={product.title}>
               <CardPromotion {...product} />
             </CarouselItem>
           ))}

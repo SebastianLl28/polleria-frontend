@@ -2,9 +2,9 @@ import { Button } from '@/components/ui/button'
 
 const About = () => {
   return (
-    <section className='grid grid-cols-2'>
+    <section className='grid grid-cols-1 lg:grid-cols-2 text-justify	'>
       <article className='space-y-3 self-center [&>p]:text-pretty [&>p]:text-xl'>
-        <h2 className='text-3xl font-bold'>¿Quienes somos?</h2>
+        <h2 className='text-3xl font-bold max-lg:text-center'>¿Quienes somos?</h2>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero obcaecati cumque
           ut incidunt. Amet, aperiam nostrum. Distinctio illo laborum in mollitia illum
@@ -22,9 +22,11 @@ const About = () => {
           asperiores consequatur recusandae, assumenda nobis nesciunt optio repudiandae
           incidunt.
         </p>
-        <Button>Ver Locales</Button>
+        <div className='text-center md:text-left'>
+          <Button>Ver Locales</Button>
+        </div>
       </article>
-      <figure className='justify-self-end'>
+      <figure className='justify-self-end hidden lg:inline'>
         <img
           src='https://plus.unsplash.com/premium_photo-1686090448301-4c453ee74718?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D'
           className='rounded'
