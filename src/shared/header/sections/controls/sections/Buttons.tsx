@@ -4,18 +4,16 @@ import useCartStore from '@/store/cartStore'
 import { useLoginModalStore } from '@/store/loginModalStore'
 import { Button } from '@/components/ui/button'
 import { MapPin, Search, ShoppingCart, User } from 'lucide-react'
+import { useSearchStore } from '@/store/searchStore'
 
-interface ButtonsProps {
-  isOpenSearch: boolean
-  setIsOpenSearch: (value: boolean) => void
-}
-
-const Buttons = ({ isOpenSearch, setIsOpenSearch }: ButtonsProps) => {
+const Buttons = () => {
   const { open } = useLoginModalStore()
   const { setIsOpen } = useModalStore()
 
   const { items } = useCartStore()
   const { setIsOpen: setIsOpenLocalModalStore } = useLocationModalStore()
+
+  const { setIsOpenSearch, isOpenSearch } = useSearchStore()
 
   return (
     <ul className='flex items-center gap-6 font-semibold'>

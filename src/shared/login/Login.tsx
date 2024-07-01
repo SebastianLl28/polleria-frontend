@@ -25,12 +25,13 @@ const Login = () => {
   })
 
   const onSubmit = (data: TLoginSchema) => {
+    /* eslint-disable no-console */
     console.log(data)
   }
 
   return (
     <AlertDialog open={isOpen}>
-      <AlertDialogContent data-testid='login-modal'>
+      <AlertDialogContent data-testid='login-modal' className='w-11/12 rounded-md'>
         <form className='space-y-4' onSubmit={handleSubmit(onSubmit)} noValidate>
           <AlertDialogHeader>
             <AlertDialogTitle className='text-center'>Iniciar Sesión</AlertDialogTitle>

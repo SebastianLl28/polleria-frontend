@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const LocationsPage = () => {
   return (
-    <main className='container mb-12 mt-12 space-y-12'>
+    <main className='container mb-12 mt-12 min-h-screen space-y-12'>
       <Link to={'/'} className={buttonVariants({ variant: 'ghost' })}>
         Regresar
       </Link>

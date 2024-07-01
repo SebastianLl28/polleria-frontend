@@ -4,6 +4,7 @@ import { useModalStore } from '@/store/modalStore'
 import { Button } from '@/components/ui/button'
 import { MapPin, Search, ShoppingCart, User } from 'lucide-react'
 import { useLocationModalStore } from '@/store/localModalStore'
+import { useSearchStore } from '@/store/searchStore'
 
 const NavigationBar = () => {
   const { setIsOpen: setIsOpenLocalModalStore } = useLocationModalStore()
@@ -11,12 +12,23 @@ const NavigationBar = () => {
   const { items } = useCartStore()
   const { open } = useLoginModalStore()
 
+  const { openSearch } = useSearchStore()
+
   return (
-    <header className='fixed bottom-0 inline-block w-full bg-primary pb-2 pt-3 md:hidden'>
+    <header className='sticky bottom-0 z-20 inline-block w-full bg-primary pb-2 pt-3 md:hidden'>
       <nav className='container w-full'>
         <ul className='flex items-center justify-between font-semibold text-white sm:justify-around'>
           <li>
-            <Search size={30} />
+            <Button
+              className='size-12 rounded-full p-0'
+              variant='ghost'
+              type='button'
+              name='search button'
+              aria-label='search button'
+              onClick={openSearch}
+            >
+              <Search size={30} />
+            </Button>
           </li>
           <li>
             <Button

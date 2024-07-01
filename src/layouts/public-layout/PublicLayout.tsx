@@ -5,13 +5,22 @@ import { useEffect } from 'react'
 import StoreDialog from '@/shared/stores-dialog/StoreDialog'
 import Login from '@/shared/login/Login'
 import NavigationBar from '@/shared/navigation-bar/NavigationBar'
+import { useSearchStore } from '@/store/searchStore'
+import NavigationMobile from '@/shared/navigation-mobile/NavigationMobile'
+import { useNavigationMobileStore } from '@/store/navigationMobileStore'
 
 const PublicLayout = () => {
   const { pathname } = useLocation()
+  const { closeSearch } = useSearchStore()
+  const { close: closeNavigationMobile } = useNavigationMobileStore()
 
   useEffect(() => {
     window.scrollTo(0, 0)
-  }, [pathname])
+
+    // close all modals
+    closeSearch()
+    closeNavigationMobile()
+  }, [pathname, closeSearch, closeNavigationMobile])
 
   return (
     <main className='relative'>
@@ -20,8 +29,12 @@ const PublicLayout = () => {
       <ShoppingCart />
       <Header />
       <Outlet />
-      {/* <FloatingButton /> */}
+
+      {/* buttons for mobile */}
       <NavigationBar />
+
+      {/* modal navigation for mobile */}
+      <NavigationMobile />
     </main>
   )
 }

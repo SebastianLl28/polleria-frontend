@@ -6,7 +6,7 @@ import Buttons from './sections/Buttons'
 import Logo from './sections/Logo'
 import Ubication from './sections/Ubication'
 import Search from './sections/Search'
-import { useState } from 'react'
+import { useNavigationMobileStore } from '@/store/navigationMobileStore'
 
 interface ControlsProps {
   isScrollDown: boolean
@@ -14,8 +14,7 @@ interface ControlsProps {
 
 const Controls = ({ isScrollDown }: ControlsProps) => {
   const { positionY } = useScroll()
-  const [isOpenSearch, setIsOpenSearch] = useState(false)
-
+  const { open } = useNavigationMobileStore()
   return (
     <div
       className={cn(
@@ -31,13 +30,18 @@ const Controls = ({ isScrollDown }: ControlsProps) => {
           <Logo />
         </div>
         <div className='hidden md:flex md:flex-grow md:basis-0 md:justify-end'>
-          <Buttons isOpenSearch={isOpenSearch} setIsOpenSearch={setIsOpenSearch} />
+          <Buttons />
         </div>
-        <Button type='button' variant='ghost' className='text-white md:hidden'>
+        <Button
+          type='button'
+          variant='ghost'
+          className='text-white md:hidden'
+          onClick={open}
+        >
           <Menu size={35} />
         </Button>
       </div>
-      <Search isOpenSearch={isOpenSearch} setIsOpenSearch={setIsOpenSearch} />
+      <Search />
     </div>
   )
 }
