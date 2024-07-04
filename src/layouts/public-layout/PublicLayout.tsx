@@ -8,6 +8,7 @@ import NavigationBar from '@/shared/navigation-bar/NavigationBar'
 import { useSearchStore } from '@/store/searchStore'
 import NavigationMobile from '@/shared/navigation-mobile/NavigationMobile'
 import { useNavigationMobileStore } from '@/store/navigationMobileStore'
+import Footer from '@/shared/footer/Footer'
 
 const PublicLayout = () => {
   const { pathname } = useLocation()
@@ -29,6 +30,7 @@ const PublicLayout = () => {
       <ShoppingCart />
       <Header />
       <Outlet />
+      <Footer />
 
       {/* buttons for mobile */}
       <NavigationBar />

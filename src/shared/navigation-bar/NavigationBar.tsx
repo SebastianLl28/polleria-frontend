@@ -15,7 +15,7 @@ const NavigationBar = () => {
   const { openSearch } = useSearchStore()
 
   return (
-    <header className='sticky bottom-0 z-20 inline-block w-full bg-primary pb-2 pt-3 md:hidden'>
+    <header className='sticky bottom-0 z-20 inline-block w-full bg-primary pb-2 pt-3 shadow-[0_3px_10px_rgb(0,0,0)] md:hidden'>
       <nav className='container w-full'>
         <ul className='flex items-center justify-between font-semibold text-white sm:justify-around'>
           <li>
