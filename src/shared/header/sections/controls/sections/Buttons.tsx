@@ -1,10 +1,12 @@
+import { Link } from 'react-router-dom'
 import { useLocationModalStore } from '@/store/localModalStore'
 import { useModalStore } from '@/store/modalStore'
 import useCartStore from '@/store/cartStore'
 import { useLoginModalStore } from '@/store/loginModalStore'
-import { Button } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button'
 import { MapPin, Search, ShoppingCart, User } from 'lucide-react'
 import { useSearchStore } from '@/store/searchStore'
+import { useLoginStore } from '@/store/loginStore'
 
 const Buttons = () => {
   const { open } = useLoginModalStore()
@@ -15,8 +17,10 @@ const Buttons = () => {
 
   const { setIsOpenSearch, isOpenSearch } = useSearchStore()
 
+  const user = useLoginStore(state => state.user)
+
   return (
-    <ul className='flex items-center gap-6 font-semibold'>
+    <ul className='flex items-center gap-5 font-semibold'>
       <li>
         <Button
           className='size-12 rounded-full p-0 md:hidden'
@@ -53,18 +57,27 @@ const Buttons = () => {
           </span>
         </Button>
       </li>
-      <li>
-        <Button
-          className='size-12 rounded-full p-0'
-          variant='ghost'
-          type='button'
-          name='login button'
-          aria-label='login button'
-          onClick={open}
-        >
-          <User size={33} />
-        </Button>
-      </li>
+      {user ? (
+        <li className={`${buttonVariants({ variant: 'ghost' })} px-0`}>
+          <Link to='/profile' className='flex items-center gap-2 px-2'>
+            <span>{user.name}</span>
+            <User size={33} />
+          </Link>
+        </li>
+      ) : (
+        <li>
+          <Button
+            className='size-12 rounded-full p-0'
+            variant='ghost'
+            type='button'
+            name='login button'
+            aria-label='login button'
+            onClick={open}
+          >
+            <User size={33} />
+          </Button>
+        </li>
+      )}
     </ul>
   )
 }
