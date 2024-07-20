@@ -37,8 +37,9 @@ const PrivateHeader = () => {
   const { pathname } = useLocation()
 
   useLayoutEffect(() => {
-    const target = document.querySelector(`a[href="${pathname}"]`)
-
+    const target = document.querySelector(
+      `a[href="${pathname}"][data-link="${pathname}"]`
+    )
     if (target) {
       const rect = (target as HTMLAnchorElement).getBoundingClientRect()
 
@@ -47,8 +48,7 @@ const PrivateHeader = () => {
         refLine.current.style.left = `${rect.left}px`
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [pathname])
 
   return (
     <header>
@@ -59,6 +59,7 @@ const PrivateHeader = () => {
               <NavLink
                 to={item.path}
                 className='inline-block px-10 py-2 text-center font-semibold transition-colors'
+                data-link={item.path}
                 onClick={e => handleClick(e)}
               >
                 {item.name}
