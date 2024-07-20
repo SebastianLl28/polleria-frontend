@@ -1,6 +1,5 @@
 import { Badge } from '@/components/ui/badge'
 import { ProductStockAdapter } from '@/adapters/product.adapter'
-import Styles from './styles/background.module.css'
 import { Califications } from './shared'
 import { Button } from '@/components/ui/button'
 import useCartStore from '@/store/cartStore'
@@ -8,6 +7,8 @@ import { useModalStore } from '@/store/modalStore'
 import useCounter from '@/hooks/useCounter.hook'
 import { useLocationSelectedStore } from '@/store/locationSelectedStore'
 import { useEffect, useState } from 'react'
+import HeartButton from './components/HeartButton'
+import useFavorite from './hooks/useFavorite'
 
 const Hero = ({
   name,
@@ -79,6 +80,8 @@ const Hero = ({
     decrement()
   }
 
+  const { isFavorite, isLogged, handleClick } = useFavorite(id)
+
   return (
     <section className='bg-gray-900 py-20 text-white'>
       <div className='container grid grid-cols-2'>
@@ -115,13 +118,20 @@ const Hero = ({
                 </Button>
               </div>
             </div>
-            <Button
-              onClick={handleFoodAdd}
-              className='bg-green-700 hover:bg-green-800'
-              disabled={count === 0}
-            >
-              Agregar Al Carrito
-            </Button>
+            <div className='flex items-center gap-3'>
+              <Button
+                onClick={handleFoodAdd}
+                className='bg-green-700 hover:bg-green-800'
+                disabled={count === 0}
+              >
+                Agregar Al Carrito
+              </Button>
+              <HeartButton
+                disabled={!isLogged}
+                active={isFavorite}
+                onClick={handleClick}
+              />
+            </div>
             {isError && (
               <p className='text-sm text-red-500'>
                 No hay suficiente stock en la tienda seleccionada
@@ -131,7 +141,6 @@ const Hero = ({
         </div>
         <div className='relative flex justify-end'>
           <img src={imageUrl} alt={name} className='max-w-md' />
-          <div className={Styles.backgroundImage}></div>
         </div>
       </div>
     </section>
