@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react'
 const useFavorite = (idProduct: number) => {
   const user = useLoginStore(state => state.user)
 
-  const { data } = useGetAllFavorites(user?.id)
+  const { data } = useGetAllFavorites()
   const { mutateAsync: mutatePost } = usePostFavorite(idProduct)
   const { mutateAsync: mutateDelete } = useDeleteFavorite(idProduct)
   const [isFavorite, setIsFavorite] = useState(false)

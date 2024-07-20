@@ -1,17 +1,22 @@
+import { productAdapter } from '@/adapters/product.adapter'
 import {
   deleteFavorite,
   getAllFavorites,
   postFavorite
 } from '@/services/favorite.service'
+import { useLoginStore } from '@/store/loginStore'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 
-export const useGetAllFavorites = (id?: number) =>
-  useQuery({
+export const useGetAllFavorites = () => {
+  const id = useLoginStore(state => state.user?.id)
+  return useQuery({
     queryKey: ['favorites', id],
     queryFn: () => getAllFavorites(id!),
     enabled: !!id,
-    refetchOnWindowFocus: false
+    refetchOnWindowFocus: false,
+    select: data => data.map(productAdapter)
   })
+}
 
 export const usePostFavorite = (idProduct: number) => {
   const queryClient = useQueryClient()
