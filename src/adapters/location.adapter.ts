@@ -4,8 +4,8 @@ export interface LocationAdapter {
   id: number
   name: string
   address: string
-  latitude: string
-  longitude: string
+  latitude: number
+  longitude: number
   imageUrl: string
   status: true
   phone: string
@@ -15,8 +15,8 @@ export const locationAdapter = (data: Location): LocationAdapter => ({
   id: data.id,
   name: data.name,
   address: data.address,
-  latitude: data.latitude,
-  longitude: data.longitude,
+  latitude: Number(data.latitude),
+  longitude: Number(data.longitude),
   imageUrl: data.imageUrl,
   status: data.status,
   phone: data.phone

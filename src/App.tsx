@@ -16,6 +16,7 @@ const ProfilePage = lazy(() => import('./page/profile/ProfilePage'))
 const FavoritePage = lazy(() => import('./page/favorite/FavoritePage'))
 const PurcharsePage = lazy(() => import('./page/purcharse/PurcharsePage'))
 const AddressPage = lazy(() => import('./page/address/AddressPage'))
+const LocationDetailPage = lazy(() => import('./page/location-detail/LocationDetailPage'))
 
 const App = () => {
   return (
@@ -28,6 +29,10 @@ const App = () => {
             <Route path={PUBLIC_ROUTER.PRODUCT_DETAIL} element={<ProductDetailPage />} />
 
             <Route path={PUBLIC_ROUTER.LOCATIONS} element={<LocationsPage />} />
+            <Route
+              path={PUBLIC_ROUTER.LOCATION_DETAIL}
+              element={<LocationDetailPage />}
+            />
 
             <Route element={<PrivateLayout />}>
               <Route path={PRIVATE_ROUTER.PROFILE} element={<ProfilePage />} />
