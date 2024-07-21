@@ -48,7 +48,7 @@ const Categories = ({ isScrollDown }: CategoriesProps) => {
             </li>
             <li className='h-full'>
               <NavLink
-                to='/locations'
+                to='/contact'
                 className={({ isActive }) =>
                   `relative flex h-full items-center px-4 after:absolute after:bottom-0 after:left-0 after:h-1 after:w-full after:bg-white after:opacity-0 after:transition-opacity after:duration-300 after:ease-in-out after:content-[''] ${isActive ? 'after:opacity-100' : 'after:opacity-0'}`
                 }

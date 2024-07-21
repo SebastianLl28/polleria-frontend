@@ -3,5 +3,6 @@ export const PUBLIC_ROUTER = {
   PRODUCTS: '/products',
   PRODUCT_DETAIL: '/products/:id',
   LOCATIONS: '/locations',
-  LOCATION_DETAIL: '/locations/:id'
+  LOCATION_DETAIL: '/locations/:id',
+  CONTACT: '/contact'
 }
