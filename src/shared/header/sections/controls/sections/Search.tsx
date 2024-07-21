@@ -1,3 +1,7 @@
+import { useEffect, useId } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Search as SearchIcon } from 'lucide-react'
+import { useDebouncedCallback } from 'use-debounce'
 import {
   Sheet,
   SheetContent,
@@ -5,17 +9,21 @@ import {
   SheetHeader,
   SheetTitle
 } from '@/components/ui/sheet'
-import { Search as SearchIcon } from 'lucide-react'
-
 import { useSearchStore } from '@/store/searchStore'
 import { Input } from '@/components/ui/input'
-import { useEffect, useId } from 'react'
-import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
+import { useFilterProducts } from '@/page/products/store/useFilterProducts'
+import { Badge } from '@/components/ui/badge'
+import { popularList } from '../data/popularList'
 
 const Search = () => {
   const { isOpenSearch, setIsOpenSearch, closeSearch } = useSearchStore()
   const inputId = useId()
+  const { filter, setFilter } = useFilterProducts()
+  const navigate = useNavigate()
+  const debounced = useDebouncedCallback(value => {
+    setFilter({ partialProduct: value, page: 0 })
+  }, 500)
 
   useEffect(() => {
     // focus on input when search is open
@@ -24,6 +32,19 @@ const Search = () => {
     }
   }, [isOpenSearch, inputId])
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      closeSearch()
+      navigate('/products')
+    }
+  }
+
+  const handlePopularClick = (label: string) => {
+    setFilter({ partialProduct: label, page: 0 })
+    closeSearch()
+    navigate('/products')
+  }
+
   return (
     <Sheet open={isOpenSearch} onOpenChange={setIsOpenSearch}>
       <SheetContent className='' side='top' hideCloseButton>
@@ -31,7 +52,12 @@ const Search = () => {
           <div className='flex items-center md:gap-6'>
             <div className='relative flex flex-grow basis-0 items-center'>
               <SearchIcon className='absolute left-2 text-gray-500' id={inputId} />
-              <Input className='pl-10' />
+              <Input
+                className='pl-10'
+                defaultValue={filter.partialProduct}
+                onChange={e => debounced(e.target.value)}
+                onKeyDown={handleKeyDown}
+              />
             </div>
             <Button type='button' variant='ghost' onClick={closeSearch}>
               Cancelar
@@ -41,16 +67,17 @@ const Search = () => {
             <SheetTitle className='mb-2 text-start text-2xl'>
               Búsquedas Populares
             </SheetTitle>
-            <ul className='flex flex-col items-start gap-1 text-lg'>
-              <li>
-                <Link to='/products'>Pollo Familiar</Link>
-              </li>
-              <li>
-                <Link to='/products'>Golosa</Link>
-              </li>
-              <li>
-                <Link to='/products'>El rico rico ricoooo</Link>
-              </li>
+            <ul className='flex flex-wrap items-start gap-4 text-lg'>
+              {popularList.map(({ id, label }) => (
+                <li key={id}>
+                  <Badge
+                    onClick={() => handlePopularClick(label)}
+                    className='cursor-pointer'
+                  >
+                    {label}
+                  </Badge>
+                </li>
+              ))}
             </ul>
           </SheetDescription>
         </SheetHeader>
