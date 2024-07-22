@@ -28,7 +28,10 @@ describe('Login', () => {
     })
 
     it('should have a close button that closes the modal', () => {
-      cy.get('@loginModal').find('button[type="button"]').should('have.text', 'Cerrar').click()
+      cy.get('@loginModal')
+        .find('button[type="button"]')
+        .should('have.text', 'Cerrar')
+        .click()
       cy.get('@loginModal').should('not.exist')
     })
   })
@@ -37,21 +40,29 @@ describe('Login', () => {
     describe('Email field', () => {
       it('should be required', () => {
         cy.get('@loginModal').find('button[type="submit"]').click()
-        cy.get('@loginModal').find('input[type="email"]').should('have.attr', 'aria-invalid', 'true')
+        cy.get('@loginModal')
+          .find('input[type="email"]')
+          .should('have.attr', 'aria-invalid', 'true')
         cy.get('@loginModal').find('span').contains('El correo electrónico es requerido')
       })
 
       it('should show an error for invalid email format', () => {
         cy.get('@loginModal').find('input[type="email"]').type('test')
         cy.get('@loginModal').find('button[type="submit"]').click()
-        cy.get('@loginModal').find('input[type="email"]').should('have.attr', 'aria-invalid', 'true')
-        cy.get('@loginModal').find('span').contains('El formato del correo electrónico es inválido')
+        cy.get('@loginModal')
+          .find('input[type="email"]')
+          .should('have.attr', 'aria-invalid', 'true')
+        cy.get('@loginModal')
+          .find('span')
+          .contains('El formato del correo electrónico es inválido')
       })
 
       it('should accept a valid email', () => {
         cy.get('@loginModal').find('input[type="email"]').type('example@gmail.com')
         cy.get('@loginModal').find('button[type="submit"]').click()
-        cy.get('@loginModal').find('input[type="email"]').should('have.attr', 'aria-invalid', 'false')
+        cy.get('@loginModal')
+          .find('input[type="email"]')
+          .should('have.attr', 'aria-invalid', 'false')
         cy.get('@loginModal').find('[aria-describedby="email-error"]').should('not.exist')
       })
     })
@@ -59,15 +70,22 @@ describe('Login', () => {
     describe('Password field', () => {
       it('Password field should be required', () => {
         cy.get('@loginModal').find('button[type="submit"]').click()
-        cy.get('@loginModal').find('input[type="password"]').should('have.attr', 'aria-invalid', 'true')
+        cy.get('@loginModal')
+          .find('input[type="password"]')
+          .should('have.attr', 'aria-invalid', 'true')
         cy.get('@loginModal').find('span').contains('La contraseña es requerida')
       })
 
       it('Password field should accept a valid password', () => {
         cy.get('@loginModal').find('input[type="password"]').type('test')
         cy.get('@loginModal').find('button[type="submit"]').click()
-        cy.get('@loginModal').find('input[type="password"]').should('have.attr', 'aria-invalid', 'false')
-        cy.get('@loginModal').find('span').contains('La contraseña es requerida').should('not.exist')
+        cy.get('@loginModal')
+          .find('input[type="password"]')
+          .should('have.attr', 'aria-invalid', 'false')
+        cy.get('@loginModal')
+          .find('span')
+          .contains('La contraseña es requerida')
+          .should('not.exist')
       })
     })
   })

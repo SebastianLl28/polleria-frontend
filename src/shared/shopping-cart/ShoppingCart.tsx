@@ -11,9 +11,12 @@ const ShoppingCart = () => {
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
-      <SheetContent className='flex flex-col border-none bg-gray-100 p-0' hideCloseButton>
+      <SheetContent
+        className='flex w-11/12 flex-col border-none bg-gray-100 p-0'
+        hideCloseButton
+      >
         <Header />
-        <div className='flex flex-grow basis-1 flex-col justify-between'>
+        <div className='relative flex flex-grow basis-1 flex-col justify-between'>
           <Body />
           {items.length !== 0 && <Footer />}
         </div>

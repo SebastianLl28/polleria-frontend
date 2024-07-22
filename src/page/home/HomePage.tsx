@@ -5,9 +5,9 @@ import Promotion from './sections/Promotion'
 
 const Home = () => {
   return (
-    <main className='h-[200dvh] space-y-24'>
+    <main className='space-y-14 md:space-y-24'>
       <Hero />
-      <div className='container mx-auto space-y-24'>
+      <div className='container mx-auto space-y-14  md:space-y-24'>
         <Promotion />
         <About />
         <Form />

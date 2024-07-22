@@ -42,7 +42,7 @@ const StoreDialog = () => {
 
   return (
     <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
-      <AlertDialogContent onEscapeKeyDown={handleEsc}>
+      <AlertDialogContent onEscapeKeyDown={handleEsc} className='w-11/12 rounded-md'>
         <AlertDialogTitle className='text-center'>
           Seleccione la tienda más cercana
         </AlertDialogTitle>
@@ -60,9 +60,10 @@ const StoreDialog = () => {
         </ul>
         <AlertDialogFooter>
           <Button
-            variant='outline'
+            variant='ghost'
             onClick={handleClose}
             disabled={pathname.includes('/products/') && selected === null}
+            className='ml-auto w-fit'
           >
             Cerrar
           </Button>

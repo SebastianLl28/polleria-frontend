@@ -8,16 +8,21 @@ const Promotion = () => {
   const products = listProducts as Promotion[]
 
   return (
-    <section className='grid gap-y-4'>
+    <section className='grid w-full gap-y-4 '>
       <h2 className='text-3xl font-bold'>Promociones</h2>
       <Carousel
         opts={{
-          loop: true
+          loop: true,
+          align: 'start'
         }}
+        className='w-full overflow-hidden'
       >
         <CarouselContent>
           {products.map(product => (
-            <CarouselItem className='basis-1/2 lg:basis-1/4' key={product.title}>
+            <CarouselItem
+              className='basis-4/5 sm:basis-1/2 lg:basis-1/4'
+              key={product.title}
+            >
               <CardPromotion {...product} />
             </CarouselItem>
           ))}

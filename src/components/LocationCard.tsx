@@ -1,19 +1,14 @@
 import { LocationAdapter } from '@/adapters/location.adapter'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-// import useCartStore from '@/store/cartStore'
 import { Phone } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
-const LocationCard = ({ name, address, phone }: LocationAdapter) => {
-  // const { addItem } = useCartStore()
-
+const LocationCard = ({ name, address, phone, id }: LocationAdapter) => {
   const navigate = useNavigate()
 
   const handleClick = () => {
-    // addItem({ id, name, imageUrl, description, price, valoration })
-    const encodedName = encodeURIComponent(name)
-    navigate(`/locations/${encodedName}`)
+    navigate(`/locations/${id}`)
   }
   return (
     <Card className='relative overflow-hidden bg-gray-50' onClick={handleClick}>

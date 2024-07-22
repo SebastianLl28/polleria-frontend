@@ -4,7 +4,7 @@ import { getLocationById, getLocations } from '@/services/location.service'
 
 export const useGetLocations = (dependecy: null | boolean) => {
   return useQuery({
-    queryKey: ['stores'],
+    queryKey: ['locations'],
     queryFn: () => getLocations(),
     refetchOnWindowFocus: false,
     select: data => ({
@@ -17,13 +17,12 @@ export const useGetLocations = (dependecy: null | boolean) => {
   })
 }
 
-export const useGetLocationById = (id: string) =>
+export const useGetLocationById = (id: string | undefined) =>
   useQuery({
-    queryKey: ['stores', id],
-    queryFn: () => getLocationById(id),
+    queryKey: ['location', id],
+    queryFn: () => getLocationById(id!),
     refetchOnWindowFocus: false,
-    select: data => locationAdapter(data.content[0]),
+    select: data => locationAdapter(data),
     enabled: !!id,
-    // cahce time 1 hour
-    staleTime: 1000 * 60 * 60
+    retry: 1
   })

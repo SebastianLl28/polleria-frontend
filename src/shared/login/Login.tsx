@@ -12,25 +12,33 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { TLoginSchema, loginSchema } from './schema/login.schema'
 import Input from '@/components/Input'
+import { useNavigate } from 'react-router-dom'
+import { PRIVATE_ROUTER } from '@/router'
 
 const Login = () => {
   const { isOpen, close } = useLoginModalStore()
+  const navigate = useNavigate()
 
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
+    reset
   } = useForm<TLoginSchema>({
     resolver: zodResolver(loginSchema)
   })
 
   const onSubmit = (data: TLoginSchema) => {
+    /* eslint-disable no-console */
     console.log(data)
+    reset()
+    close()
+    navigate(PRIVATE_ROUTER.PROFILE)
   }
 
   return (
     <AlertDialog open={isOpen}>
-      <AlertDialogContent data-testid='login-modal'>
+      <AlertDialogContent data-testid='login-modal' className='w-11/12 rounded-md'>
         <form className='space-y-4' onSubmit={handleSubmit(onSubmit)} noValidate>
           <AlertDialogHeader>
             <AlertDialogTitle className='text-center'>Iniciar Sesión</AlertDialogTitle>
