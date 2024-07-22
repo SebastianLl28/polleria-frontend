@@ -1,4 +1,4 @@
-import { customerAd+apter } from '@/adapters/customer.adapter'
+import { customerAdapter } from '@/adapters/customer.adapter'
 import { postCustomer } from '@/model/Customers.model'
 import { getProfile, updateProfile } from '@/services/customers.services'
 import { useMutation,useQuery} from '@tanstack/react-query'
