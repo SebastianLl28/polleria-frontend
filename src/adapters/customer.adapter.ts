@@ -1,4 +1,4 @@
-import { getCustomer, postCustomer } from "@/model/Customers.model";
+import { getCustomer, postCustomer } from '@/model/Customers.model'
 
 export interface CustomerAdapter {
   id: number
@@ -7,7 +7,6 @@ export interface CustomerAdapter {
   email: string
   birthdate: string
   status: boolean
-
 }
 
 export interface getCustomerAdapter extends CustomerAdapter {
@@ -15,7 +14,7 @@ export interface getCustomerAdapter extends CustomerAdapter {
   favoriteProducts: string[]
 }
 
-export interface postCustomerAdapter extends CustomerAdapter{
+export interface postCustomerAdapter extends CustomerAdapter {
   password: string
 }
 

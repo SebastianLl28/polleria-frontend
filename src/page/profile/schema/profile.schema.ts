@@ -20,7 +20,8 @@ export const profileSchema = z
         path: ['confirmPassword']
       })
     }
-  }).refine((profileSchema)=> profileSchema.password === '12345678', {
+  })
+  .refine(profileSchema => profileSchema.password === '12345678', {
     message: 'Contraseña erronea',
     path: ['password']
   })

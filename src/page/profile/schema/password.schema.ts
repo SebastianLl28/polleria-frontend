@@ -16,7 +16,8 @@ export const passwordSchema = z
         path: ['confirmPassword']
       })
     }
-  }).refine((passwordSchema)=> passwordSchema.password === '12345678', {
+  })
+  .refine(passwordSchema => passwordSchema.password === '12345678', {
     message: 'Contraseña erronea',
     path: ['password']
   })

@@ -1,18 +1,18 @@
-import Input from "@/components/Input";
-import { Button } from "@/components/ui/button";
-import { Label } from "@radix-ui/react-label";
-import { Pencil } from "lucide-react";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { passwordSchema, TPasswordSchema } from "./schema/password.schema";
-import { zodResolver } from "@hookform/resolvers/zod";
+import Input from '@/components/Input'
+import { Button } from '@/components/ui/button'
+import { Label } from '@radix-ui/react-label'
+import { Pencil } from 'lucide-react'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { passwordSchema, TPasswordSchema } from './schema/password.schema'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 export default function PasswordChanged(onSubmit) {
   const [editPassword, setEditPassword] = useState(true)
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm<TPasswordSchema>({
     resolver: zodResolver(passwordSchema)
   })
