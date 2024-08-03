@@ -36,7 +36,7 @@ const PublicLayout = () => {
   }, [pathname, closeSearch, closeNavigationMobile])
 
   return (
-    <main className='relative'>
+    <main className='relative grid min-h-dvh grid-rows-[auto,1fr,auto]'>
       <Login />
       <StoreDialog />
       <ShoppingCart />
