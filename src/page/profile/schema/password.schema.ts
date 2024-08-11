@@ -2,10 +2,18 @@ import z from 'zod'
 
 export const passwordSchema = z
   .object({
-    password: z.string().min(8, 'La contraseña debe de tener al menos 8 caracteres'),
-    newPassword: z.string().min(8, 'La contraseña debe de tener al menos 8 caracteres'),
+    password: z
+      .string({
+        required_error: 'La contraseña es requerida'
+      })
+      .min(8, 'La contraseña debe de tener al menos 8 caracteres'),
+    newPassword: z
+      .string({ required_error: 'La nueva contraseña es requerida' })
+      .min(8, 'La contraseña debe de tener al menos 8 caracteres'),
     confirmPassword: z
-      .string()
+      .string({
+        required_error: 'La confirmación de la contraseña es requerida'
+      })
       .min(8, 'La contraseña debe de tener al menos 8 caracteres')
   })
   .superRefine(({ confirmPassword, newPassword }, ctx) => {
@@ -17,9 +25,14 @@ export const passwordSchema = z
       })
     }
   })
-  .refine(passwordSchema => passwordSchema.password === '12345678', {
-    message: 'Contraseña erronea',
-    path: ['password']
+  .superRefine(({ password, newPassword }, ctx) => {
+    if (password === newPassword) {
+      ctx.addIssue({
+        code: 'custom',
+        message: 'La nueva contraseña no puede ser igual a la anterior',
+        path: ['newPassword']
+      })
+    }
   })
 
 export type TPasswordSchema = z.infer<typeof passwordSchema>

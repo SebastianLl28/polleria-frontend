@@ -8,3 +8,13 @@ export const getProfile = async (id: number) => {
 export const updateProfile = async (id: number, updateData: Omit<postCustomer, 'id'>) => {
   return await baseApi.put(`/customers/${id}`, updateData).then(res => res.data)
 }
+
+export const updatePassword = async (
+  id: number,
+  oldPassword: string,
+  newPassword: string
+) => {
+  return await baseApi
+    .post(`/customers/change-password/${id}`, { oldPassword, newPassword })
+    .then(res => res.data)
+}
