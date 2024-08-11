@@ -3,6 +3,7 @@ import { Suspense, lazy } from 'react'
 import { PRIVATE_ROUTER, PUBLIC_ROUTER } from './router'
 import { PublicLayout } from './layouts'
 import ProductDetailPage from './page/product-detail/ProductDetailPage'
+import { Toaster } from 'sonner'
 
 import LocationsPage from './page/locations/LocationsPage'
 
@@ -22,6 +23,7 @@ const ContactPage = lazy(() => import('./page/contact/ContactPage'))
 const App = () => {
   return (
     <BrowserRouter>
+      <Toaster />
       <Suspense fallback={<LoadingPage />}>
         <Routes>
           <Route element={<PublicLayout />}>
