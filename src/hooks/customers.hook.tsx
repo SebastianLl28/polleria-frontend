@@ -1,5 +1,5 @@
 import { customerAdapter } from '@/adapters/customer.adapter'
-import { postCustomer } from '@/model/Customers.model'
+import { Customer } from '@/model/Customer.model'
 import { getProfile, updateProfile, updatePassword } from '@/services/customers.service'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { AxiosError } from 'axios'
@@ -19,7 +19,14 @@ export const useGetProfileById = (id: number) => {
 export const useUpdateProfileById = (id: number) => {
   return useMutation({
     mutationKey: ['putProfile'],
-    mutationFn: (body: Omit<postCustomer, 'id'>) => updateProfile(id, body)
+    mutationFn: (body: Omit<Customer, 'id' | 'status' | 'password'>) =>
+      updateProfile(id, body),
+    onSuccess: () => {
+      toast.success('Perfil actualizado')
+    },
+    onError: () => {
+      toast.error('Error al actualizar el perfil')
+    }
   })
 }
 

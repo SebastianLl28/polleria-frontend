@@ -11,7 +11,3 @@ export interface getCustomer extends Customer {
   addressList: string[]
   favoriteProducts: string[]
 }
-
-export interface postCustomer extends Customer {
-  password: string
-}
