@@ -3,9 +3,9 @@ import { getCustomer, postCustomer } from '@/model/Customers.model'
 export interface CustomerAdapter {
   id: number
   name: string
-  lastname: string
+  lastName: string
   email: string
-  birthdate: string
+  birthDate: string
   status: boolean
 }
 
@@ -21,9 +21,9 @@ export interface postCustomerAdapter extends CustomerAdapter {
 export const customerAdapter = (customer: getCustomer): getCustomerAdapter => ({
   id: customer.id,
   name: customer.name,
-  lastname: customer.lastname,
+  lastName: customer.lastName,
   email: customer.email,
-  birthdate: customer.birthdate,
+  birthDate: customer.birthDate,
   status: customer.status,
   addressList: customer.addressList,
   favoriteProducts: customer.favoriteProducts
@@ -32,9 +32,9 @@ export const customerAdapter = (customer: getCustomer): getCustomerAdapter => ({
 export const updateCustomerAdapter = (customer: postCustomer): postCustomerAdapter => ({
   id: customer.id,
   name: customer.name,
-  lastname: customer.lastname,
+  lastName: customer.lastName,
   email: customer.email,
-  birthdate: customer.birthdate,
+  birthDate: customer.birthDate,
   status: customer.status,
   password: customer.password
 })

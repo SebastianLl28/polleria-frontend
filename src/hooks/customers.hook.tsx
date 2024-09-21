@@ -5,14 +5,13 @@ import { useMutation, useQuery } from '@tanstack/react-query'
 import { AxiosError } from 'axios'
 import { toast } from 'sonner'
 
-export const useGetProfileById = (id: number) => {
+export const useGetProfileById = () => {
   return useQuery({
     queryKey: ['getProfile'],
-    queryFn: () => getProfile(id),
+    queryFn: getProfile,
     refetchOnWindowFocus: false,
     retry: 1,
-    select: profile => customerAdapter(profile),
-    enabled: !!id
+    select: profile => customerAdapter(profile)
   })
 }
 

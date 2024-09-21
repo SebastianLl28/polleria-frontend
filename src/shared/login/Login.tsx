@@ -14,10 +14,13 @@ import { TLoginSchema, loginSchema } from './schema/login.schema'
 import Input from '@/components/Input'
 import { useNavigate } from 'react-router-dom'
 import { PRIVATE_ROUTER } from '@/router'
+import { useAuthLogin } from '@/hooks/auth.hook'
 
 const Login = () => {
   const { isOpen, close } = useLoginModalStore()
   const navigate = useNavigate()
+
+  const { mutate } = useAuthLogin()
 
   const {
     register,
@@ -29,11 +32,12 @@ const Login = () => {
   })
 
   const onSubmit = (data: TLoginSchema) => {
-    /* eslint-disable no-console */
-    console.log(data)
-    reset()
-    close()
-    navigate(PRIVATE_ROUTER.PROFILE)
+    mutate(data, {
+      onSuccess: () => {
+        close()
+        reset()
+      }
+    })
   }
 
   return (

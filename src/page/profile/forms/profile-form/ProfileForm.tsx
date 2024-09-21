@@ -13,7 +13,7 @@ const ProfileForm = () => {
 
   const id = useLoginStore(state => state.user!.id)
 
-  const { data, isSuccess } = useGetProfileById(id)
+  const { data, isSuccess } = useGetProfileById()
 
   const {
     register,
@@ -31,9 +31,9 @@ const ProfileForm = () => {
   const refreshData = useCallback(() => {
     if (data) {
       setValue('name', data.name)
-      setValue('lastname', data.lastname)
+      setValue('lastName', data.lastName)
       setValue('email', data.email)
-      setValue('birthdate', data.birthdate)
+      setValue('birthDate', data.birthDate)
     }
   }, [data, setValue])
 
@@ -75,12 +75,12 @@ const ProfileForm = () => {
         <Input
           label='Apellidos'
           className='w-full'
-          hookForm={register('lastname')}
+          hookForm={register('lastName')}
           classNameContainer='col-span-2 md:col-span-1'
-          placeholder={isSuccess ? data.lastname : ''}
-          defaultValue={isSuccess ? data.lastname : ''}
+          placeholder={isSuccess ? data.lastName : ''}
+          defaultValue={isSuccess ? data.lastName : ''}
           disabled={!editProfile}
-          error={errors.lastname}
+          error={errors.lastName}
         />
         <Input
           label='Correo'
@@ -96,12 +96,12 @@ const ProfileForm = () => {
           type='date'
           label='Cumpleaños'
           className='w-full'
-          hookForm={register('birthdate')}
+          hookForm={register('birthDate')}
           classNameContainer='col-span-2'
-          placeholder={isSuccess ? data.birthdate : ''}
-          defaultValue={isSuccess ? data.birthdate : ''}
+          placeholder={isSuccess ? data.birthDate : ''}
+          defaultValue={isSuccess ? data.birthDate : ''}
           disabled={!editProfile}
-          error={errors.birthdate}
+          error={errors.birthDate}
         />
         <div className={!editProfile ? 'col-span-2 hidden' : 'col-span-2 block'}>
           <Button type='submit' className='mt-5 w-full bg-green-600 hover:bg-green-700'>

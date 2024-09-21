@@ -3,14 +3,14 @@ import { Customer } from '@/model/Customer.model'
 import { getCustomer } from '@/model/Customers.model'
 
 export const getProfile = async (id: number) => {
-  return await baseApi.get<getCustomer>(`/customers/${id}`).then(res => res.data)
+  return await baseApi.get<getCustomer>('/user/profile').then(res => res.data)
 }
 
 export const updateProfile = async (
   id: number,
   updateData: Omit<Customer, 'id' | 'status' | 'password'>
 ) => {
-  return await baseApi.put(`/customers/${id}`, updateData).then(res => res.data)
+  return await baseApi.put(`/user/${id}`, updateData).then(res => res.data)
 }
 
 export const updatePassword = async (

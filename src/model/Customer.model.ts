@@ -1,7 +1,7 @@
 export interface Customer {
   id: number
   name: string
-  lastname: string
+  lastName: string
   email: string
   birthdate: string
   status: boolean
