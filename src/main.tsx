@@ -5,9 +5,16 @@ import './index.css'
 import 'leaflet/dist/leaflet.css'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { authInterceptor } from './interceptors/auth.interceptor.ts'
+import { authInterceptor } from './config/interceptors.ts'
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: false
+    }
+  }
+})
 
 authInterceptor()
 

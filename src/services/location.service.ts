@@ -1,9 +1,9 @@
 import { baseApi } from '@/api/baseApi'
-import { Pagination } from '@/model/Pagination.model'
+import { IPagination } from '@/model/Pagination.model'
 import { Location } from '@/model/Location.model'
 
 export const getLocations = async () => {
-  return await baseApi.get<Pagination<Location>>('/stores', {}).then(res => res.data)
+  return await baseApi.get<IPagination<Location>>('/stores', {}).then(res => res.data)
 }
 
 export const getLocationById = async (id: string) => {

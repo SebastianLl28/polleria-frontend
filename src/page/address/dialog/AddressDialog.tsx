@@ -10,7 +10,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useMemo } from 'react'
 import { useForm } from 'react-hook-form'
 import { addressSchema, TAddressSchema } from '../schema/addressSchema'
-import Input from '@/components/Input'
+import Input from '@/components/form/Input'
 import { Button } from '@/components/ui/button'
 import useConfirmation from '@/hooks/useConfirmation.hook'
 

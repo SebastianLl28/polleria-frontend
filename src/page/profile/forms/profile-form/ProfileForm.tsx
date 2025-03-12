@@ -6,7 +6,7 @@ import { useGetProfileById, useUpdateProfileById } from '@/hooks/customers.hook'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useLoginStore } from '@/store/loginStore'
 import { TProfileSchema, profileSchema } from '../../schema/profile.schema'
-import Input from '@/components/Input'
+import Input from '@/components/form/Input'
 
 const ProfileForm = () => {
   const [editProfile, setEditProfile] = useState(false)

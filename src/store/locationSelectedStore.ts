@@ -1,10 +1,10 @@
-import { LocationAdapter } from '@/adapters/location.adapter'
+import { Location } from '@/model/Location.model'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
 interface LocationSelectedStore {
-  selected: LocationAdapter | null
-  setSelected: (location: LocationAdapter) => void
+  selected: Location | null
+  setSelected: (location: Location | null) => void
 }
 
 export const useLocationSelectedStore = create(

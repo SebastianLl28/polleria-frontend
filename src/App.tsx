@@ -1,17 +1,16 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Suspense, lazy } from 'react'
-import { PRIVATE_ROUTER, PUBLIC_ROUTER } from './router'
-import { PublicLayout } from './layouts'
-import ProductDetailPage from './page/product-detail/ProductDetailPage'
+import { PRIVATE_ROUTER, PUBLIC_ROUTER } from './config/path'
 import { Toaster } from 'sonner'
 
 import LocationsPage from './page/locations/LocationsPage'
-
-import PrivateLayout from './layouts/private-layout/PrivateLayout'
-import LoadingPage from './shared/loading-page/LoadingPage'
+import LoadingPage from './components/shared/loading-page/LoadingPage'
+import { PublicLayout } from './components/layouts'
+import PrivateLayout from './components/layouts/private-layout/PrivateLayout'
+import ProductPage from './features/product/page/product/ProductPage'
 
 const HomePage = lazy(() => import('./page/home/HomePage'))
-const ProductsPage = lazy(() => import('./page/products/ProductsPage'))
+const ProductsPage = lazy(() => import('./features/product/page/products/ProductsPage'))
 
 const ProfilePage = lazy(() => import('./page/profile/ProfilePage'))
 const FavoritePage = lazy(() => import('./page/favorite/FavoritePage'))
@@ -29,7 +28,7 @@ const App = () => {
           <Route element={<PublicLayout />}>
             <Route path={PUBLIC_ROUTER.HOME} element={<HomePage />} />
             <Route path={PUBLIC_ROUTER.PRODUCTS} element={<ProductsPage />} />
-            <Route path={PUBLIC_ROUTER.PRODUCT_DETAIL} element={<ProductDetailPage />} />
+            <Route path={PUBLIC_ROUTER.PRODUCT_DETAIL} element={<ProductPage />} />
 
             <Route path={PUBLIC_ROUTER.LOCATIONS} element={<LocationsPage />} />
             <Route

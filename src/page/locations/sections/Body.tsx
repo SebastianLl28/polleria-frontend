@@ -1,4 +1,4 @@
-import LocationCard from '@/components/LocationCard'
+import LocationCard from '@/features/location/component/card/LocationCard'
 import { useGetLocations } from '@/hooks/location.hook'
 
 const Body = () => {

@@ -36,13 +36,13 @@ const ProductDetailPage = () => {
                 valoration={data.valoration}
               />
             </div>
-            <div className='row-span-2'>
+            {/* <div className='row-span-2'>
               <Categories
                 categoryName={data.categoryList[0]}
                 idProduct={Number(id)}
                 dependecy={!isLoading && isSuccess}
               />
-            </div>
+            </div> */}
           </div>
         </main>
       )}

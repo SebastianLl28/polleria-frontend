@@ -1,0 +1,5 @@
+export const PRODUCTS_QUERY_KEY = ['products']
+export const CATEGORIES_QUERY_KEY = ['categories']
+export const PRODUCT_QUERY_KEY = ['product']
+export const LOCATIONS_QUERY_KEY = ['locations']
+export const PRODUCT_LOCATION_STOCK_QUERY_KEY = ['product-location-stock']
